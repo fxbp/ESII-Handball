@@ -2,7 +2,7 @@
 
 /**
  * \brief Representa un jugador del joc de handbol
- *  *   * @file Jugador.java
+ * @file Jugador.java
  */
 public class Jugador extends Personatge{
   
