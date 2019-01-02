@@ -1,4 +1,8 @@
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 
 /**
  * \brief Representa un jugador del joc de handbol
@@ -20,24 +24,39 @@ public class Jugador extends Personatge{
     
     /** \brief numero de gols que ha fet el jugador durant el partit*/
     private int _gols;
+        
+    /** \brief Representa la llista de sancions que pot tenir un jugador */
+    private List<Sancio> _sancions;
     
+    /** \brief Represneta els jugadors a pista de l'equip. Els jugadors que siguin a pista son els que estan jugant */
+    private Pista _pista;
+    
+    /** \brief Representa la banqueta de l'equip. El jugador sera a la banqueta si no es a pista o l'exclouen */
+    private Banqueta _banqueta;
     
     // Constructors -----------------------------------------------------------
     
-    public Jugador(String id, String nom, String cognom, String numLlicencia, double pes, int alcada, int dorsal) {
-        super(id, nom, cognom, numLlicencia);
+    public Jugador(String nom, String cognom, String numLlicencia, double pes, int alcada, int dorsal, Banqueta banqueta, Pista pista) {
+        super(nom, cognom, numLlicencia);
         
         _pes=pes;
         _alcada=alcada;
         _dorsal=dorsal;
         _gols=0;
-        
+        _sancions=new ArrayList();
+        _banqueta=banqueta;
+        _pista=pista;
     }
     
     
     
     
     // Metodes Publics --------------------------------------------------------
+    
+    public int getDorsal(){
+        return _dorsal;
+    }
+    
     
     /**
      * \brief el Jugador s'anota un gol
@@ -48,4 +67,20 @@ public class Jugador extends Personatge{
         _gols++;
     }
     
+    
+    public void rebreAmonestacio(Sancio.TipusSancio sancio){
+        
+    }
+    
+    public void entrarBanqueta() throws Exception{
+        _pista.treureJugador(this);
+        if (!_banqueta.plena())
+         _banqueta.AfegirJugador(this);
+    }
+    
+    public void entrarPista() throws Exception{
+        _banqueta.treureJugador(this);
+        if (!_pista.plena())
+            _pista.AfegirJugador(this);
+    }
 }
