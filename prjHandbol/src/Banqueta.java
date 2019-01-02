@@ -19,11 +19,19 @@ public class Banqueta {
     /* \brief Jugadors que estan a pista guardats en format  <DORSAL,JUGADOR> */
     private Map _jugadors;
     
+     /* \brief Equip dels jugadors que conte la Banqueta */
+    private Equip _equip;
     
     // Constructors ------------------------------------------------------------
     
-    public Banqueta(){
+    /**
+     * Constructor d'una nova Banqueta
+     * @param equip Identifica l'equip del qual son els jugadors
+     */
+    public Banqueta(Equip equip){
         _jugadors = new HashMap();
+        _equip = equip;
+ 
     }
     
     

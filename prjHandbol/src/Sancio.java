@@ -9,8 +9,7 @@ public class Sancio {
     public enum TipusSancio {
         Groga,
         Vermella,
-        Exclusio,
-        Expulsio
+        Exclusio
     }
     
     // Atributs ---------------------------------------------------------------
@@ -26,9 +25,35 @@ public class Sancio {
     
     // Constructors -----------------------------------------------------------
     
+    
+    /**
+     * Construeix una nova Sancio
+     * @param minut minut en que es produeix la sanció
+     * @param part part en que es produeix la sanció
+     * @param tipus Tipus de la sancio (Groga, Vermella o Exclusió)
+     */
     public Sancio(int minut, int part, TipusSancio tipus){
         _minut=minut;
         _part=part;
         _tipus=tipus;
+    }
+    
+    
+    // Metodes Publics ---------------------------------------------------------
+    
+    /**
+     * @pre True
+     * @return El número enter que representa la part de la Sancio
+     */
+    public int getPart(){
+        return _part;
+    }
+    
+    /**
+     * @pre True
+     * @return El tipus de sancio (Groga, Vermella o Exclusio)
+     */
+    public TipusSancio getTipus(){
+        return _tipus;
     }
 }

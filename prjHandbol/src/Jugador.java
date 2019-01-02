@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -31,11 +32,26 @@ public class Jugador extends Personatge{
     /** \brief Represneta els jugadors a pista de l'equip. Els jugadors que siguin a pista son els que estan jugant */
     private Pista _pista;
     
+    
     /** \brief Representa la banqueta de l'equip. El jugador sera a la banqueta si no es a pista o l'exclouen */
     private Banqueta _banqueta;
     
+    /** \brief atribut auxiliar per determinar que un jugador estar exclos. Aquest atribut redundant s'utilitza per no haber d'implementar el concepte del temps */
+    private boolean _exclos;
+    
     // Constructors -----------------------------------------------------------
     
+    /**
+     * Crea un Personatge Jugador amb els parametres corresponents
+     * @param nom nom del jugador
+     * @param cognom cognom del jugador
+     * @param numLlicencia número de llicencia del jugador
+     * @param pes pes del jugador en kg
+     * @param alcada alçada del jugador en cm
+     * @param dorsal número dorsal del jugador
+     * @param banqueta Banqueta on anira el jugador mentre no estigui jugant
+     * @param pista Pista on va el jugador mentre esta jugant
+     */
     public Jugador(String nom, String cognom, String numLlicencia, double pes, int alcada, int dorsal, Banqueta banqueta, Pista pista) {
         super(nom, cognom, numLlicencia);
         
@@ -46,17 +62,42 @@ public class Jugador extends Personatge{
         _sancions=new ArrayList();
         _banqueta=banqueta;
         _pista=pista;
+        _exclos=false;
     }
-    
-    
+      
     
     
     // Metodes Publics --------------------------------------------------------
     
+    /**
+     * @pre True
+     * @return Número enter que representa el número de dorsal del Jugador
+     */
     public int getDorsal(){
         return _dorsal;
     }
     
+    /**
+     * @pre True
+     * @return True si el jugador te una Targeta Vermella. Fals altrament.
+     */
+    public boolean expulsat(){
+        Iterator itSancions = _sancions.iterator();
+        boolean expulsat=false;
+        while(!expulsat && itSancions.hasNext()){
+            expulsat = ((Sancio)itSancions.next()).getTipus()==Sancio.TipusSancio.Vermella;
+        }
+        
+        return expulsat;
+    }
+   
+    /**
+     * @pre True
+     * @return Cert si el jugador està exclòs actualment. Fals altrament.
+     */
+    public boolean exclos(){
+        return _exclos;
+    }
     
     /**
      * \brief el Jugador s'anota un gol
@@ -68,10 +109,29 @@ public class Jugador extends Personatge{
     }
     
     
-    public void rebreAmonestacio(Sancio.TipusSancio sancio){
+    /**
+     * @pre tipus != null && part > 0 && minut > 0
+     * @post S'ha sancionat al jugador amb el tipus corresponent. S'han aplicat les sancions derivades de tipus amb les sancions que pogues tenir ja el jugador
+     * @param tipus Sancio que s'ha d'aplicar al jugador
+     * @param part part en la que s'esta sancionant al jugador 
+     * @param minut minut de la part en que el jugador rep la sancio
+     * @throws Exception Si no es pot realitzar alguna accio correctament
+     */
+    public void rebreAmonestacio(Sancio.TipusSancio tipus, int part, int minut) throws Exception{
+       
+        switch(tipus){
+            case Groga:
+                aplicarTargetaGroga(tipus,part,minut);
+                break;                
+            default:
+                //implementar resta de sancions
+                break;
+        }
+        
         
     }
     
+   
     
     /**
      * @pre True
@@ -93,5 +153,56 @@ public class Jugador extends Personatge{
         _banqueta.treureJugador(this);
         if (!_pista.plena())
             _pista.AfegirJugador(this);
+    }
+    
+    
+    
+    
+    
+    
+    // Metodes Privats ------------------------------------------------------
+    
+    
+    /**
+     * @pre tipus != null && part > 0 && minut > 0
+     * @post Aplica una targeta groga al jugador. Aplica més sancions si el jugador s'ha d'expulsar o excloure com a resultat de rebre una nova targeta groga
+     * @param tipus Sancio que s'ha d'aplicar al jugador
+     * @param part part en la que s'esta sancionant al jugador 
+     * @param minut minut de la part en que el jugador rep la sancio
+     * @throws Exception si no  es pot realitzar alguna acció correctament
+     */
+    private void aplicarTargetaGroga(Sancio.TipusSancio tipus, int part, int minut) throws Exception{
+        int groguesPart=0;
+        int exclusions=0;
+        
+        Iterator itSancions= _sancions.iterator();
+        
+        while(itSancions.hasNext()){
+            Sancio sancioActual=(Sancio)itSancions.next();
+            if (sancioActual.getPart() == part && sancioActual.getTipus() == Sancio.TipusSancio.Groga)
+                groguesPart++;
+            
+            if (sancioActual.getTipus() == Sancio.TipusSancio.Exclusio)
+                exclusions++;
+        }
+        
+        //afegir la sancio actual
+        _sancions.add(new Sancio(minut,part,tipus));
+        
+        if ( groguesPart>=1){
+            //implica com a minim 1 Exclusio{
+            
+            if (exclusions>=2){
+                // si ja tenia 2 exclusions i ara n'afegim 1 de nova --> expulsio directe
+                _sancions.add(new Sancio(minut,part,Sancio.TipusSancio.Vermella));
+            }
+            else{
+                // aplicar la exclusio de 2 minuts 
+                _sancions.add(new Sancio(minut,part,Sancio.TipusSancio.Exclusio));
+            }
+            // en ambdós cassos el jugador pasara a la banqueta           
+            entrarBanqueta();            
+        }
+            
     }
 }

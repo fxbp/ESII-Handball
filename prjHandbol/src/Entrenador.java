@@ -14,6 +14,8 @@ public class Entrenador extends Personatge{
     private List<Missatge> _missatges;
     
     
+    private Equip _equip;
+    
     // Constructors -----------------------------------------------------------
     
     
@@ -23,11 +25,13 @@ public class Entrenador extends Personatge{
      * @param cognom cognom de l'entrenador
      * @param numLlicencia numero de llicencia de l'entrenador
      * @param missatges llista de missatges que l'entrenador pot enviar als jugadors
+     * @param equip Equip el qual entrena
      */
-    public Entrenador(String nom, String cognom, String numLlicencia, List<Missatge> missatges) {
+    public Entrenador(String nom, String cognom, String numLlicencia, List<Missatge> missatges, Equip equip) {
         super(nom, cognom, numLlicencia);
         
-        _missatges=missatges;
+        _missatges = missatges;
+        _equip = equip;
     }
     
 }
