@@ -131,6 +131,17 @@ public class Jugador extends Personatge{
         
     }
     
+    /**
+     * @pre Cert
+     * @post S'ha mostrat per pantalla el missatge que ha rebut de l'entrenador
+     * @param missatge missatge que envia l'entrenador
+     */
+    public void rebreMissatgeEntrenador(String missatge){
+        // En aquesta implementació farem que aquest metode escrigui a la consola
+        System.out.println("Dorsal " + Integer.toString(_dorsal) +": L'entrenador m'ha enviat: ");
+        System.out.println(missatge);
+        System.out.println();
+    }
    
     
     /**

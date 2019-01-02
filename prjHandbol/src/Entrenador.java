@@ -34,4 +34,8 @@ public class Entrenador extends Personatge{
         _equip = equip;
     }
     
+    
+    
+    // Metodes publics --------------------------------------------------------
+    
 }

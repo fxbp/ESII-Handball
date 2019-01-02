@@ -1,5 +1,6 @@
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 
@@ -66,5 +67,19 @@ public class Banqueta {
     public void treureJugador(Jugador jug){
         if (_jugadors.containsKey(jug.getDorsal()))
             _jugadors.remove(jug.getDorsal());
+    }
+    
+    
+    /**
+     * @pre Cert
+     * @post S'ha enviat missatge a tots els jugadors 
+     * @param missatge String que s'ha d'enviar als jugadors
+     */
+    public void enviarMissatge(String missatge){
+        Iterator itJugadors= _jugadors.values().iterator();
+        
+        while(itJugadors.hasNext()){
+            ((Jugador)itJugadors.next()).rebreMissatgeEntrenador(missatge);
+        }
     }
 }
