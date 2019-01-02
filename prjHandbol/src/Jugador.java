@@ -40,6 +40,10 @@ public class Jugador extends Personatge
     /** \brief atribut auxiliar per determinar que un jugador estar exclos. Aquest atribut redundant s'utilitza per no haber d'implementar el concepte del temps */
     private boolean _exclos;
     
+    
+    /** \brief Representa l'objecte que fa de Subject en el patro observer de l'arbitre al qual es pot subscriure el jugador */
+    private SubjectArbitre _subject;
+    
     // Constructors -----------------------------------------------------------
     
     /**
@@ -69,6 +73,27 @@ public class Jugador extends Personatge
     
     
     // Metodes Publics --------------------------------------------------------
+    
+    /**
+     * @pre subject != null
+     * @post S'ha assignat el subject del patro observer arbitre
+     * @param subject Objecte al qual es pot subscriure l'observer
+     */
+    public void setSubject(SubjectArbitre subject){
+        _subject=subject;
+    }
+    
+    /**
+     * @pre Cert
+     * @post L'observer s'ha subscrit al subjectArbitre si pendent. S'ha desubscrit altrament
+     * @param pendent indica si l'observer ha d'estar pendent del subject o no
+     */
+    public void setPendentArbitre(boolean pendent){
+        if (pendent)
+            _subject.subscriure(this);
+        else
+            _subject.desubscriure(this);
+    }
     
     /**
      * @pre True
