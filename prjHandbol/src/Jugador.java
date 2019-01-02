@@ -9,7 +9,8 @@ import java.util.List;
  * \brief Representa un jugador del joc de handbol
  * @file Jugador.java
  */
-public class Jugador extends Personatge{
+public class Jugador extends Personatge
+        implements ObserverArbitre {
   
     // Atributs ----------------------------------------------------------------
     
@@ -168,7 +169,14 @@ public class Jugador extends Personatge{
     
     
     
+    // Metodes del Patro ObserverArbitre
     
+    @Override
+    public void updateAmonestacio(int dorsal, Sancio.TipusSancio tipus, int part, int minut) throws Exception{
+        if (dorsal == _dorsal){
+            rebreAmonestacio(tipus, part, minut);
+        }
+    }
     
     
     // Metodes Privats ------------------------------------------------------
