@@ -72,12 +72,23 @@ public class Jugador extends Personatge{
         
     }
     
+    
+    /**
+     * @pre True
+     * @post el Jugador ha anat a la Banqueta. El jugador ha sortit de pista si hi era
+     * @throws Exception Si no es pot afegir el jugador a la banqueta
+     */
     public void entrarBanqueta() throws Exception{
         _pista.treureJugador(this);
         if (!_banqueta.plena())
          _banqueta.AfegirJugador(this);
     }
     
+    /**
+     * @pre True
+     * @post el jugador ha anat a Pista. El jugador ha sortit de la banqueta si hi era
+     * @throws Exception Si no es pot afegir el jugador a pista
+     */
     public void entrarPista() throws Exception{
         _banqueta.treureJugador(this);
         if (!_pista.plena())

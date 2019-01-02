@@ -29,10 +29,20 @@ public class Banqueta {
     
     // Metodes Publics -------------------------------------------------------
     
+    /**
+     * @pre True
+     * @return Cert si s'ha arribat al limit de jugadors. Fals altrament.
+     */
     public boolean plena(){
         return _jugadors.size()>=MAX_JUGADORS_BANQUETA;
     }
     
+    /**
+     * @pre jug != null
+     * @post jug afegit a banqueta
+     * @param jug Jugador que es vol afegir a la banqueta
+     * @throws Exception Si Banqueta plena no es pot afegir jug. Es llança excepcio
+     */
     public void AfegirJugador(Jugador jug) throws Exception{
         if(plena())
             throw new Exception("La banqueta ja esta plena. Ho hi caben més jugadors");
@@ -40,6 +50,11 @@ public class Banqueta {
         _jugadors.put(jug.getDorsal(), jug);
     }
     
+    /**
+     * @pre jug != null
+     * @post jug Eliminat de la banqueta. Si el jugador no hi era no es realitza cap acció
+     * @param jug Jugador a treure de la banqueta
+     */
     public void treureJugador(Jugador jug){
         if (_jugadors.containsKey(jug.getDorsal()))
             _jugadors.remove(jug.getDorsal());
