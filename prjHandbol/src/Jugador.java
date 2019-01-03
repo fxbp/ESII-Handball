@@ -44,6 +44,17 @@ public class Jugador extends Personatge
     /** \brief Representa l'objecte que fa de Subject en el patro observer de l'arbitre al qual es pot subscriure el jugador */
     private SubjectArbitre _subject;
     
+    /** \brief es el rol que pren el jugador si no se li indica res mes */
+    private Rol _rolPropi;
+    
+    /** \brief Representa el rol actual en el que es posiciona el jugador */
+    private Rol _rolActual;
+    
+    /** \brief indica la posicio actual del jugador */
+    private Posicio3D _posicio;
+    
+    
+    
     // Constructors -----------------------------------------------------------
     
     /**
@@ -56,8 +67,9 @@ public class Jugador extends Personatge
      * @param dorsal número dorsal del jugador
      * @param banqueta Banqueta on anira el jugador mentre no estigui jugant
      * @param pista Pista on va el jugador mentre esta jugant
+     * @param rol Es el rol en que pren  el jugador per defecte
      */
-    public Jugador(String nom, String cognom, String numLlicencia, double pes, int alcada, int dorsal, Banqueta banqueta, Pista pista) {
+    public Jugador(String nom, String cognom, String numLlicencia, double pes, int alcada, int dorsal, Banqueta banqueta, Pista pista, Rol rol) {
         super(nom, cognom, numLlicencia);
         
         _pes=pes;
@@ -68,12 +80,14 @@ public class Jugador extends Personatge
         _banqueta=banqueta;
         _pista=pista;
         _exclos=false;
+        _rolPropi = rol;
+        _rolActual = rol;
     }
       
     
     
     // Metodes Publics --------------------------------------------------------
-    
+           
     /**
      * @pre subject != null
      * @post S'ha assignat el subject del patro observer arbitre
@@ -192,6 +206,35 @@ public class Jugador extends Personatge
             _pista.AfegirJugador(this);
     }
     
+    
+    // Metdoes del patro Strategy
+    
+    /**
+    * @pre True
+    * @post El jugador torna a jugar com el seu rol per defecte
+    */
+    public void canviaRol(){
+        _rolActual = _rolPropi;
+    }
+    
+    /**
+     * @pre nouRol != null
+     * @post el jugador passa a jugar en el nouRol
+     * @param nouRol rol que tindra el jugador a partir d'ara
+     */
+    public void canviaRol(Rol nouRol){
+        _rolActual = nouRol;
+    }
+    
+    
+    public void realitzaXut(){
+        _rolActual.xutar();
+    }
+    
+    
+    public void realitzaPosicionar(){
+        _posicio = _rolActual.posicionar();
+    }
     
     
     // Metodes del Patro ObserverArbitre
