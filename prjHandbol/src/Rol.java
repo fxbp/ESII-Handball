@@ -15,7 +15,8 @@ public interface Rol {
         ExtremEsquerra,
         LateralDret,
         LateralEsquerra,
-        Pivot
+        Pivot,
+		Porter
     }
     
     /**
