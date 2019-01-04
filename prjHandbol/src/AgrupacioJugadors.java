@@ -42,7 +42,7 @@ public abstract class AgrupacioJugadors {
      * @pre True
      * @return Cert si s'ha arribat al limit de jugadors. Fals altrament.
      */
-    public boolean plena(){
+    public final boolean plena(){
         return _jugadors.size()>= _limit;
     }
     
@@ -52,7 +52,7 @@ public abstract class AgrupacioJugadors {
      * @param jug Jugador que es vol afegir a la Agrupacio
      * @throws Exception Si AgrupacioJugadors plena no es pot afegir jug. Es llança excepcio
      */
-    public void AfegirJugador(Jugador jug) throws Exception{
+    public final void AfegirJugador(Jugador jug) throws Exception{
         if(plena())
             throw new Exception("La banqueta ja esta plena. Ho hi caben més jugadors");
         
@@ -64,7 +64,7 @@ public abstract class AgrupacioJugadors {
      * @post jug Eliminat de la Agrupacio. Si el jugador no hi era no es realitza cap acció
      * @param jug Jugador a treure de la Agrupacio
      */
-    public void treureJugador(Jugador jug){
+    public final void treureJugador(Jugador jug){
         if (_jugadors.containsKey(jug.getDorsal()))
             _jugadors.remove(jug.getDorsal());
     }
@@ -75,7 +75,7 @@ public abstract class AgrupacioJugadors {
      * @post S'ha enviat missatge a tots els jugadors 
      * @param missatge String que s'ha d'enviar als jugadors
      */
-    public void enviarMissatge(String missatge){
+    public final void enviarMissatge(String missatge){
         Iterator itJugadors= _jugadors.values().iterator();
         
         while(itJugadors.hasNext()){

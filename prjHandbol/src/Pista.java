@@ -1,10 +1,4 @@
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-
-
 /**
  * \brief Representa els jugadors que estan a la pista d'un equip
  * @file Pista.java
