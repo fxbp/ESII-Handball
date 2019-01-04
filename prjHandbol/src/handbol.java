@@ -8,4 +8,12 @@
  */
 public class handbol {
     
+    
+    public static void main(String[] args) {
+        CarregaDades loader = new CarregaDades();
+
+        loader.inicialitzaDades();
+    }
+     
+    
 }
