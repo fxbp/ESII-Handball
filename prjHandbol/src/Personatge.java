@@ -4,7 +4,7 @@
  * \brief Representa un personatge qualsevol identificat i amb numero de llicencia
  * @file Personatge.java
  */
-public abstract class Personatge {
+public abstract class Personatge implements Identificable {
     
     //Atributs ----------------------------------------------------------------
     
@@ -29,6 +29,13 @@ public abstract class Personatge {
         _numLlicencia=numLlicencia;
     }
     
+   
+
+    // Metodes Interficie Identificable
     
+    @Override
+    public boolean hasID(String id) {
+       return _numLlicencia.equals(id);
+    }
        
 }

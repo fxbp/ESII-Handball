@@ -15,7 +15,7 @@ public class Banqueta extends AgrupacioJugadors {
      * \brief Construeix una nova Banqueta
      * @param equip Identifica l'equip del qual son els jugadors
      */
-    private Banqueta(Equip equip){
+    public Banqueta(Equip equip){
         super(equip, MAX_JUGADORS_BANQUETA);
         
     }    

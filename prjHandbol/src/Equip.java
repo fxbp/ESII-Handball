@@ -4,7 +4,7 @@
  * \brief Representa un dels equips del joc de handbol
  * @file Equip.java
  */
-public class Equip {
+public class Equip implements Identificable {
     
     // Atributs ---------------------------------------------------------------
     
@@ -39,27 +39,31 @@ public class Equip {
         _idEquip = idEquip;
         _nomEquip = nomEquip;
         _ciutat = ciutat;
+        
+        _pista = new Pista(this);
+        _banqueta = new Banqueta(this);
     }
     
     
     // Metodes Publics ---------------------------------------------------------
     
+    
+   
+    
     /**
      * @pre Cert
-     * @post ha afegit la banqueta a l'equip
-     * @param banqueta on son els jugadors de l'equip que no jugen actualment
+     * @return la Banqueta de l'equip
      */
-    public void setBanqueta(Banqueta banqueta){
-        _banqueta = banqueta;
+    public Banqueta getBanqueta(){
+         return _banqueta;
     }
     
     /**
      * @pre Cert
-     * @post Ha afegit la pista a l'equip
-     * @param pista on son els jugadors de l'equip que jugen actualment
+     * @return la pista de l'equip
      */
-    public void setPista(Pista pista){
-        _pista = pista;
+    public Pista getPista(){
+        return _pista;
     }
     
     /**
@@ -94,4 +98,11 @@ public class Equip {
         _banqueta.enviarMissatge(missatge);
     }
     
+    
+    // Metodes Interficie identificable
+    
+    @Override
+    public boolean hasID(String id){
+        return _idEquip.equals(id);
+    }
 }

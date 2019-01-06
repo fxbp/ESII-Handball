@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -7,7 +8,7 @@ import java.util.List;
  * @file Entrenador.java
  */
 public class Entrenador extends Personatge
-        implements ObserverArbitre {
+        implements ObserverArbitre{
     
     // Atributs ---------------------------------------------------------------
     
@@ -28,13 +29,12 @@ public class Entrenador extends Personatge
      * @param nom nom de l'entrenador
      * @param cognom cognom de l'entrenador
      * @param numLlicencia numero de llicencia de l'entrenador
-     * @param missatges llista de missatges que l'entrenador pot enviar als jugadors
      * @param equip Equip el qual entrena
      */
-    public Entrenador(String nom, String cognom, String numLlicencia, List<Missatge> missatges, Equip equip) {
+    public Entrenador(String nom, String cognom, String numLlicencia, Equip equip) {
         super(nom, cognom, numLlicencia);
         
-        _missatges = missatges;
+        _missatges = new ArrayList();
         _equip = equip;
     }
     
@@ -42,18 +42,26 @@ public class Entrenador extends Personatge
     
     // Metodes publics --------------------------------------------------------
     
-     /**
-     * @pre subject != null
-     * @post S'ha assignat el subject del patro observer arbitre. L'entrenador sempre estara atent a l'arbitre en aquesta implementacio
-     * @param subject Objecte al qual es pot subscriure l'observer
-     */
+    /**
+    * @pre subject != null
+    * @post S'ha assignat el subject del patro observer arbitre. L'entrenador sempre estara atent a l'arbitre en aquesta implementacio
+    * @param subject Objecte al qual es pot subscriure l'observer
+    */
     public void setSubject(SubjectArbitre subject){
         _subject=subject;
         _subject.subscriure(this);
     }
     
     
-    
+    /**
+     * @pre missatge != null
+     * @post s'ha afegit el missatge a l'entrenador
+     * @param missatge missagte que l'entrenador pot donar als jugadors
+     */
+    public void addMissatge(Missatge missatge){
+        
+        _missatges.add(missatge);
+    }
     
     
     // Metodes observer
@@ -62,4 +70,8 @@ public class Entrenador extends Personatge
     public void updateAmonestacio(int dorsal, Sancio.TipusSancio tipus, int part, int minut){
         // Realitzar les accions de l'entrenador segons 1 jugador seu ha estat sancionat
     }
+
+    
+    
+    
 }
