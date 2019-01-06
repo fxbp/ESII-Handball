@@ -21,7 +21,7 @@ public interface SubjectArbitre {
     public void desubscriure(ObserverArbitre observer);
     
     /**
-     * @pre Cert
+     * @pre dorsal > 0 && tipus != null && part > 0 && minut > 0
      * @post Ha enviat la notificacio a tots els observers subscrits
      * @param dorsal dorsal del jugador a qui s'ha amonestat
      * @param tipus tipus d'amonestacio
