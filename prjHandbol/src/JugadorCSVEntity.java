@@ -38,14 +38,14 @@ public class JugadorCSVEntity implements CSVEntity{
        int dorsal = Integer.parseInt(camps[DORSAL]);
        int titular = Integer.parseInt(camps[TITULAR]);
        Jugador result = new Jugador(camps[NOM], camps[COGNOM], camps[NUM_LLICENCIA], pes, alcada, dorsal,equip.getBanqueta(),equip.getPista(),rol);
-       
+       result.setSubject(_subject);
        if (titular == 1){
            result.entrarPista();
        }
        else
            result.entrarBanqueta();
        
-       result.setSubject(_subject);
+       
        return result;
     }
     

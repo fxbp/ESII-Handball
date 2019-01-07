@@ -24,10 +24,11 @@ public interface SubjectArbitre {
      * @pre dorsal > 0 && tipus != null && part > 0 && minut > 0
      * @post Ha enviat la notificacio a tots els observers subscrits
      * @param dorsal dorsal del jugador a qui s'ha amonestat
+     * @param idEquip identificador de l'equip del jugador
      * @param tipus tipus d'amonestacio
      * @param part part en la qual s'ha realitzat l'amonestacio
      * @param minut minut en el qual s'ha realitzat l'amonestacio
      * @throws Exception si no es poden realitzar correctament les accions
      */
-    public void notificar(int dorsal, Utils.TipusSancio tipus, int part, int minut) throws Exception;
+    public void notificar(int dorsal, String idEquip, Utils.TipusSancio tipus, int part, int minut) throws Exception;
 }

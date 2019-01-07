@@ -45,7 +45,7 @@ public class Utils {
         while (it.hasNext() && !((Identificable)(result = (T)it.next())).hasID(id));
        
         if (result == null || !((Identificable)result).hasID(id)){
-            throw new Exception("No s'ha trobat l¡equip corresponent");
+            throw new Exception("No s'ha trobat l'objecte corresponent");
         }
               
         return result;

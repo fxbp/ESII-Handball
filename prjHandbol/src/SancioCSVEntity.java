@@ -9,17 +9,16 @@ import java.util.List;
  */
 public class SancioCSVEntity implements CSVEntity {
     
-    final static int EQUIP=0;
-    final static int DORSAL=1;
-    final static int TIPUS=2;
-    final static int PART=3;
-    final static int MINUT=4;
+    final static int ID_JUGADOR=0;
+    final static int TIPUS=1;
+    final static int PART=2;
+    final static int MINUT=3;
    
     
-    private List<Equip> _equips;
+    private List<Jugador> _jugadors;
     
-    public SancioCSVEntity(List<Equip> equips){
-        _equips = equips;
+    public SancioCSVEntity(List<Jugador> jugadors){
+        _jugadors = jugadors;
     }
     
     
@@ -27,13 +26,13 @@ public class SancioCSVEntity implements CSVEntity {
     public Sancio create(String linia, String separador) throws Exception {
        String camps[]=linia.split(separador);
        
-       Equip equip = Utils.obtenirIdentificable(_equips, camps[EQUIP]);
+       Jugador jugador = Utils.obtenirIdentificable(_jugadors, camps[ID_JUGADOR]);
        int minut = Integer.parseInt(camps[MINUT]);
        int part = Integer.parseInt(camps[PART]);
-       int dorsal = Integer.parseInt(camps[DORSAL]);
+       
        Sancio result = new Sancio(minut, part, Utils.TipusSancio.valueOf(camps[TIPUS]));
        
-       equip.getJugador(dorsal).afegirSancioInicial(result);
+       jugador.afegirSancioInicial(result);
       
        return result;
     }

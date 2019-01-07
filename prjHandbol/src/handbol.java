@@ -11,8 +11,14 @@ public class handbol {
     
     public static void main(String[] args) {
         CarregaDades loader = new CarregaDades();
-
-        loader.inicialitzaDades();
+        try{   
+            loader.inicialitzaDades();
+            Partit partit = loader.getPartit();
+        }
+        catch(Exception e){
+            System.err.println(e.toString());
+        }
+        
     }
      
     

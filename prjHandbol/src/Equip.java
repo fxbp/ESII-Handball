@@ -47,19 +47,7 @@ public class Equip implements Identificable {
     
     // Metodes Publics ---------------------------------------------------------
     
-    
-    public Jugador getJugador(int dorsal){
-        Jugador result = null;
-        
-        result = _pista.getJugador(dorsal);
-        if (result == null){
-           result = _banqueta.getJugador(dorsal);
-        }
-        
-        
-        return result;
-    }
-    
+       
     /**
      * @pre Cert
      * @return la Banqueta de l'equip

@@ -73,14 +73,14 @@ public class Jugador extends Personatge
     public Jugador(String nom, String cognom, String numLlicencia, double pes, int alcada, int dorsal, Banqueta banqueta, Pista pista, Rol rol) {
         super(nom, cognom, numLlicencia);
         
-        _pes=pes;
-        _alcada=alcada;
-        _dorsal=dorsal;
-        _gols=0;
-        _sancions=new ArrayList();
-        _banqueta=banqueta;
-        _pista=pista;
-        _exclos=false;
+        _pes = pes;
+        _alcada = alcada;
+        _dorsal = dorsal;
+        _gols = 0;
+        _sancions = new ArrayList();
+        _banqueta = banqueta;
+        _pista = pista;
+        _exclos = false;
         _rolPropi = rol;
         _rolActual = rol;
     }
@@ -252,8 +252,8 @@ public class Jugador extends Personatge
     // Metodes del Patro ObserverArbitre
     
     @Override
-    public void updateAmonestacio(int dorsal, Utils.TipusSancio tipus, int part, int minut) throws Exception{
-        if (dorsal == _dorsal){
+    public void updateAmonestacio(int dorsal, String idEquip, Utils.TipusSancio tipus, int part, int minut) throws Exception{
+        if (_pista.pertany(idEquip) && dorsal == _dorsal){
             rebreAmonestacio(tipus, part, minut);
         }
     }

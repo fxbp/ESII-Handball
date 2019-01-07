@@ -37,16 +37,7 @@ public abstract class AgrupacioJugadors {
     
     
     // Metodes Publics -------------------------------------------------------
-    
-    public Jugador getJugador(int dorsal){
-        Jugador result = null;
-        
-        if(_jugadors.containsKey(dorsal))
-            result = _jugadors.get(dorsal);
-        
-        return result;
-    }
-    
+          
     /**
      * @pre True
      * @return Cert si s'ha arribat al limit de jugadors. Fals altrament.
@@ -90,5 +81,10 @@ public abstract class AgrupacioJugadors {
         while(itJugadors.hasNext()){
             ((Jugador)itJugadors.next()).rebreMissatgeEntrenador(missatge);
         }
+    }
+    
+    
+    public boolean pertany(String idEquip){
+        return _equip.hasID(idEquip);
     }
 }

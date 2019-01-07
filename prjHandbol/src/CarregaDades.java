@@ -16,7 +16,7 @@ public class CarregaDades {
     final static  String FITXER_ARBITRES="carrega/Arbitres.csv";
     final static  String FITXER_PARTIT="carrega/Partit.csv";
     final static  String FITXER_EQUIPS="carrega/Equips.csv";
-    final static  String FITXER_ENTRENADORS="carrega/Entrenators.csv";
+    final static  String FITXER_ENTRENADORS="carrega/Entrenadors.csv";
     final static  String FITXER_JUGADORS="carrega/Jugadors.csv";
     final static  String FITXER_MISSATGES="carrega/missatgesEntrenador.csv";
     final static  String FITXER_SANCIONS="carrega/SancionsJugador.csv";
@@ -39,13 +39,16 @@ public class CarregaDades {
         List<Entrenador> entrenadors = fromCSV(new EntrenadorCSVEntity(equips, subject), llegirFitxer(FITXER_ENTRENADORS));
         List<Missatge> missatges = fromCSV(new MissatgeCSVEntity(entrenadors), llegirFitxer(FITXER_MISSATGES));
         List<Jugador> jugadors = fromCSV(new JugadorCSVEntity(equips,subject), llegirFitxer(FITXER_JUGADORS));
-        List<Sancio> sancions = fromCSV(new SancioCSVEntity(equips), llegirFitxer(FITXER_SANCIONS));
+        List<Sancio> sancions = fromCSV(new SancioCSVEntity(jugadors), llegirFitxer(FITXER_SANCIONS));
         
         List<Partit> partits = fromCSV(new PartitCSVEntity(arbitres, equips), llegirFitxer(FITXER_PARTIT)); 
         
         _partit = partits.get(0);
     }
     
+    public Partit getPartit(){
+        return _partit;
+    }
     
     // Metodes Privats ---------------------------------------------------------
     
