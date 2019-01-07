@@ -49,4 +49,28 @@ public class Partit {
         _local = local;
         _visitant = visitant;
     }
+    
+    public void mostrarEquips()
+    {
+        System.out.println("Equips disputant el partit:");
+        System.out.println("1: Local "+ _local.toString());
+        System.out.println("2: Visitant "+ _local.toString());
+        System.out.println();
+    }
+    
+    public Equip obtenirEquip(int value)
+    {
+        if(value == 1)
+        {
+            return _local;
+        }
+        else if(value == 2)
+        {
+            return _visitant;
+        }
+        else
+        {
+            return null;
+        }
+    }
 }

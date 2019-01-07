@@ -23,7 +23,6 @@ public class Utils {
         Porter
     }
     
-    
      public enum TipusSancio {
         Groga,
         Vermella,

@@ -78,7 +78,7 @@ public class Equip implements Identificable {
      * @param missatge String que s'envia als jugadors que estan a pista
      * @throws Exception si la pista no està afegida o es null no es pot enviar el missatge
      */
-    public void EnviarMissatgePista(String missatge) throws Exception{
+    public void enviarMissatgePista(String missatge) throws Exception{
         if (_pista == null)
             throw new Exception("La pista no està assignada a l'equip");
         _pista.enviarMissatge(missatge);
@@ -90,10 +90,16 @@ public class Equip implements Identificable {
      * @param missatge String que s'envia als jugadors que estan a banqueta
      * @throws Exception Si la banqueta no està afegida o és null no es pot enviar el missatge
      */
-    public void EnviarMissatgeBanqueta(String missatge) throws Exception{
+    public void enviarMissatgeBanqueta(String missatge) throws Exception{
         if (_banqueta == null)
             throw new Exception("La banqueta no està assignada a l'equip");
         _banqueta.enviarMissatge(missatge);
+    }
+    
+    @Override
+    public String toString()
+    {
+        return "Id "+ _idEquip + " Nom " + _nomEquip + " de " + _ciutat;
     }
     
     

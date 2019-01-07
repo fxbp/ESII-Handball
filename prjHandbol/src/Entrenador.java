@@ -38,8 +38,6 @@ public class Entrenador extends Personatge
         _equip = equip;
     }
     
-    
-    
     // Metodes publics --------------------------------------------------------
     
     /**
@@ -52,7 +50,6 @@ public class Entrenador extends Personatge
         _subject.subscriure(this);
     }
     
-    
     /**
      * @pre missatge != null
      * @post s'ha afegit el missatge a l'entrenador
@@ -63,7 +60,6 @@ public class Entrenador extends Personatge
         _missatges.add(missatge);
     }
     
-    
     // Metodes observer
     
     @Override
@@ -71,7 +67,18 @@ public class Entrenador extends Personatge
         // Realitzar les accions de l'entrenador segons 1 jugador seu ha estat sancionat
     }
 
-    
+    public void enviarMissatgePista(String missatge)
+    {
+        try
+        {
+            _equip.enviarMissatgePista(missatge);
+        }
+        catch(Exception e)
+        {
+            //
+        }
+        
+    }
     
     
 }
