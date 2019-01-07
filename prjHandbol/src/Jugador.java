@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 
 
@@ -13,7 +14,7 @@ public class Jugador extends Personatge
         implements ObserverArbitre {
   
     // Atributs ----------------------------------------------------------------
-    
+    private static Random random = new Random();
     
     /** \brief Pes en KG del jugador */
     private double _pes;
@@ -109,6 +110,11 @@ public class Jugador extends Personatge
             _subject.desubscriure(this);
     }
     
+    
+    public void afegirSancioInicial(Sancio sancio){
+        _sancions.add(sancio);
+    }
+    
     /**
      * @pre True
      * @return Número enter que representa el número de dorsal del Jugador
@@ -125,7 +131,7 @@ public class Jugador extends Personatge
         Iterator itSancions = _sancions.iterator();
         boolean expulsat=false;
         while(!expulsat && itSancions.hasNext()){
-            expulsat = ((Sancio)itSancions.next()).getTipus()==Sancio.TipusSancio.Vermella;
+            expulsat = ((Sancio)itSancions.next()).getTipus()==Utils.TipusSancio.Vermella;
         }
         
         return expulsat;
@@ -157,7 +163,7 @@ public class Jugador extends Personatge
      * @param minut minut de la part en que el jugador rep la sancio
      * @throws Exception Si no es pot realitzar alguna accio correctament
      */
-    public void rebreAmonestacio(Sancio.TipusSancio tipus, int part, int minut) throws Exception{
+    public void rebreAmonestacio(Utils.TipusSancio tipus, int part, int minut) throws Exception{
        
         switch(tipus){
             case Groga:
@@ -193,6 +199,11 @@ public class Jugador extends Personatge
         _pista.treureJugador(this);
         if (!_banqueta.plena())
          _banqueta.AfegirJugador(this);
+        
+        if (random.nextInt(10) < 1){
+            //10% de estar distret
+            _subject.desubscriure(this);
+        };
     }
     
     /**
@@ -204,6 +215,7 @@ public class Jugador extends Personatge
         _banqueta.treureJugador(this);
         if (!_pista.plena())
             _pista.AfegirJugador(this);
+            setPendentArbitre(true);
     }
     
     
@@ -213,7 +225,7 @@ public class Jugador extends Personatge
     * @pre True
     * @post El jugador torna a jugar com el seu rol per defecte
     */
-    public void canviaRol(){
+    public void resetRol(){
         _rolActual = _rolPropi;
     }
     
@@ -240,7 +252,7 @@ public class Jugador extends Personatge
     // Metodes del Patro ObserverArbitre
     
     @Override
-    public void updateAmonestacio(int dorsal, Sancio.TipusSancio tipus, int part, int minut) throws Exception{
+    public void updateAmonestacio(int dorsal, Utils.TipusSancio tipus, int part, int minut) throws Exception{
         if (dorsal == _dorsal){
             rebreAmonestacio(tipus, part, minut);
         }
@@ -258,7 +270,7 @@ public class Jugador extends Personatge
      * @param minut minut de la part en que el jugador rep la sancio
      * @throws Exception si no  es pot realitzar alguna acció correctament
      */
-    private void aplicarTargetaGroga(Sancio.TipusSancio tipus, int part, int minut) throws Exception{
+    private void aplicarTargetaGroga(Utils.TipusSancio tipus, int part, int minut) throws Exception{
         int groguesPart=0;
         int exclusions=0;
         
@@ -266,10 +278,10 @@ public class Jugador extends Personatge
         
         while(itSancions.hasNext()){
             Sancio sancioActual=(Sancio)itSancions.next();
-            if (sancioActual.getPart() == part && sancioActual.getTipus() == Sancio.TipusSancio.Groga)
+            if (sancioActual.getPart() == part && sancioActual.getTipus() == Utils.TipusSancio.Groga)
                 groguesPart++;
             
-            if (sancioActual.getTipus() == Sancio.TipusSancio.Exclusio)
+            if (sancioActual.getTipus() == Utils.TipusSancio.Exclusio)
                 exclusions++;
         }
         
@@ -281,11 +293,11 @@ public class Jugador extends Personatge
             
             if (exclusions>=2){
                 // si ja tenia 2 exclusions i ara n'afegim 1 de nova --> expulsio directe
-                _sancions.add(new Sancio(minut,part,Sancio.TipusSancio.Vermella));
+                _sancions.add(new Sancio(minut,part,Utils.TipusSancio.Vermella));
             }
             else{
                 // aplicar la exclusio de 2 minuts 
-                _sancions.add(new Sancio(minut,part,Sancio.TipusSancio.Exclusio));
+                _sancions.add(new Sancio(minut,part,Utils.TipusSancio.Exclusio));
             }
             // en ambdós cassos el jugador pasara a la banqueta           
             entrarBanqueta();            

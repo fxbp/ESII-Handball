@@ -67,7 +67,7 @@ public class Entrenador extends Personatge
     // Metodes observer
     
     @Override
-    public void updateAmonestacio(int dorsal, Sancio.TipusSancio tipus, int part, int minut){
+    public void updateAmonestacio(int dorsal, Utils.TipusSancio tipus, int part, int minut){
         // Realitzar les accions de l'entrenador segons 1 jugador seu ha estat sancionat
     }
 

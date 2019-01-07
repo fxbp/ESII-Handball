@@ -15,5 +15,5 @@ public interface ObserverArbitre {
      * @param minut minut en el qual s'ha realitzat l'amonestacio
      * @throws Exception si no es pot amonestar correctament
      */
-    public void updateAmonestacio(int dorsal, Sancio.TipusSancio tipus, int part, int minut) throws Exception;
+    public void updateAmonestacio(int dorsal, Utils.TipusSancio tipus, int part, int minut) throws Exception;
 }

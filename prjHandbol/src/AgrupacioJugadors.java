@@ -16,7 +16,7 @@ public abstract class AgrupacioJugadors {
     private int _limit;
     
     /* \brief Jugadors que estan a pista guardats en format  <DORSAL,JUGADOR> */
-    private Map _jugadors;
+    private Map<Integer,Jugador> _jugadors;
     
      /* \brief Equip dels jugadors que conte la Banqueta */
     private Equip _equip;
@@ -37,6 +37,15 @@ public abstract class AgrupacioJugadors {
     
     
     // Metodes Publics -------------------------------------------------------
+    
+    public Jugador getJugador(int dorsal){
+        Jugador result = null;
+        
+        if(_jugadors.containsKey(dorsal))
+            result = _jugadors.get(dorsal);
+        
+        return result;
+    }
     
     /**
      * @pre True

@@ -47,7 +47,7 @@ public class Comite  implements SubjectArbitre {
      * @param minut minut en el qual s'ha realitzat l'amonestacio
      * @throws Exception si no es poden realitzar correctament les accions
      */
-    public void registrarAmonestacio(int dorsal, Sancio.TipusSancio tipus, int part, int minut) throws Exception {
+    public void registrarAmonestacio(int dorsal, Utils.TipusSancio tipus, int part, int minut) throws Exception {
         notificar(dorsal,tipus, part, minut);
     }
     
@@ -78,7 +78,7 @@ public class Comite  implements SubjectArbitre {
     }
 
     @Override
-    public void notificar(int dorsal, Sancio.TipusSancio tipus, int part, int minut) throws Exception {
+    public void notificar(int dorsal, Utils.TipusSancio tipus, int part, int minut) throws Exception {
         Iterator itObservers = _observers.iterator();
         
         while (itObservers.hasNext()){

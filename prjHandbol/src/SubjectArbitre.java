@@ -29,5 +29,5 @@ public interface SubjectArbitre {
      * @param minut minut en el qual s'ha realitzat l'amonestacio
      * @throws Exception si no es poden realitzar correctament les accions
      */
-    public void notificar(int dorsal, Sancio.TipusSancio tipus, int part, int minut) throws Exception;
+    public void notificar(int dorsal, Utils.TipusSancio tipus, int part, int minut) throws Exception;
 }

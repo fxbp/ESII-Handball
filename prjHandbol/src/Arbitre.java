@@ -32,7 +32,7 @@ public class Arbitre extends Personatge  {
      * @param minut minut en que es produeix l'amonestació
      * @throws Exception Si no es poden realitzar les operacions derivades de l'amonestacio al jugador
      */
-    public void AmonestarJugador(int dorsal, Sancio.TipusSancio tipus, int part, int minut) throws Exception{
+    public void AmonestarJugador(int dorsal, Utils.TipusSancio tipus, int part, int minut) throws Exception{
         // l'arbitre que amonesta rep la informació necessaria per fer-ho. S'utilitza l'observer i el jugador implicat realitzara les accions pertinents
         _comite.registrarAmonestacio(dorsal, tipus, part, minut);
         

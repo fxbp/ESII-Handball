@@ -13,9 +13,6 @@ import java.util.List;
 public class CarregaDades {
     
     final static String SEPARADOR=";";
-    
-
-    
     final static  String FITXER_ARBITRES="carrega/Arbitres.csv";
     final static  String FITXER_PARTIT="carrega/Partit.csv";
     final static  String FITXER_EQUIPS="carrega/Equips.csv";
@@ -24,31 +21,35 @@ public class CarregaDades {
     final static  String FITXER_MISSATGES="carrega/missatgesEntrenador.csv";
     final static  String FITXER_SANCIONS="carrega/SancionsJugador.csv";
    
+    // Atributs ----------------------------------------------------------------
+    
+    /** \brief repesenta el partit amb tots els elements necessaris per fer la simulacio*/
+    private Partit _partit;
     
     
-    private List<Arbitre> _arbitres;
+    // Metodes Publics --------------------------------------------------------
+    
     
     public void inicialitzaDades() throws Exception{
-       /**
-        List<String> liniesPartit=llegirFitxer(FITXER_PARTIT);
-       
-        
-        List<String> liniesJugadors=llegirFitxer(FITXER_JUGADORS);
-        List<String> liniesSancions=llegirFitxer(FITXER_SANCIONS);
-
-        */
-               
+                   
         SubjectArbitre subject = Comite.getInstance();
-        List<Equip> equips= fromCSV(new EquipCSVParser(),llegirFitxer(FITXER_EQUIPS));
-        List<Arbitre> arbitres = fromCSV(new ArbitreCSVParser(),llegirFitxer(FITXER_ARBITRES));
+        List<Equip> equips= fromCSV(new EquipCSVEntity(),llegirFitxer(FITXER_EQUIPS));
+        List<Arbitre> arbitres = fromCSV(new ArbitreCSVEntity(),llegirFitxer(FITXER_ARBITRES));
         
-        List<Entrenador> entrenadors = fromCSV(new EntrenadorCSVParser(equips, subject), llegirFitxer(FITXER_ENTRENADORS));
-        List<Missatge> missatges = fromCSV(new MissatgeCSVParser(entrenadors), llegirFitxer(FITXER_MISSATGES));
+        List<Entrenador> entrenadors = fromCSV(new EntrenadorCSVEntity(equips, subject), llegirFitxer(FITXER_ENTRENADORS));
+        List<Missatge> missatges = fromCSV(new MissatgeCSVEntity(entrenadors), llegirFitxer(FITXER_MISSATGES));
+        List<Jugador> jugadors = fromCSV(new JugadorCSVEntity(equips,subject), llegirFitxer(FITXER_JUGADORS));
+        List<Sancio> sancions = fromCSV(new SancioCSVEntity(equips), llegirFitxer(FITXER_SANCIONS));
         
+        List<Partit> partits = fromCSV(new PartitCSVEntity(arbitres, equips), llegirFitxer(FITXER_PARTIT)); 
         
+        _partit = partits.get(0);
     }
     
-    private  List fromCSV(CSVParser parser, List<String> linies) throws Exception{
+    
+    // Metodes Privats ---------------------------------------------------------
+    
+    private List fromCSV(CSVEntity parser, List<String> linies) throws Exception{
         
         List result=new ArrayList();
         for(String linia : linies){

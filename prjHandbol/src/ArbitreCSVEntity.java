@@ -3,7 +3,7 @@
  *
  * @author Francesc
  */
-public class ArbitreCSVParser implements CSVParser
+public class ArbitreCSVEntity implements CSVEntity
 {
 
     final static int NOM=0;
