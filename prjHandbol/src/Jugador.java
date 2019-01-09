@@ -31,12 +31,7 @@ public class Jugador extends Personatge
     /** \brief Representa la llista de sancions que pot tenir un jugador */
     private List<Sancio> _sancions;
     
-    /** \brief Represneta els jugadors a pista de l'equip. Els jugadors que siguin a pista son els que estan jugant */
-    private Pista _pista;
-    
-    
-    /** \brief Representa la banqueta de l'equip. El jugador sera a la banqueta si no es a pista o l'exclouen */
-    private Banqueta _banqueta;
+    private Equip _equip;
     
     /** \brief atribut auxiliar per determinar que un jugador estar exclos. Aquest atribut redundant s'utilitza per no haber d'implementar el concepte del temps */
     private boolean _exclos;
@@ -66,11 +61,10 @@ public class Jugador extends Personatge
      * @param pes pes del jugador en kg
      * @param alcada alçada del jugador en cm
      * @param dorsal número dorsal del jugador
-     * @param banqueta Banqueta on anira el jugador mentre no estigui jugant
-     * @param pista Pista on va el jugador mentre esta jugant
+     * @param equip equip al qual pertany el jugador
      * @param rol Es el rol en que pren  el jugador per defecte
      */
-    public Jugador(String nom, String cognom, String numLlicencia, double pes, int alcada, int dorsal, Banqueta banqueta, Pista pista, Rol rol) {
+    public Jugador(String nom, String cognom, String numLlicencia, double pes, int alcada, int dorsal, Equip equip, Rol rol) {
         super(nom, cognom, numLlicencia);
         
         _pes = pes;
@@ -78,8 +72,7 @@ public class Jugador extends Personatge
         _dorsal = dorsal;
         _gols = 0;
         _sancions = new ArrayList();
-        _banqueta = banqueta;
-        _pista = pista;
+        _equip = equip;
         _exclos = false;
         _rolPropi = rol;
         _rolActual = rol;
@@ -123,20 +116,6 @@ public class Jugador extends Personatge
         return _dorsal;
     }
     
-    /**
-     * @pre True
-     * @return True si el jugador te una Targeta Vermella. Fals altrament.
-     */
-    public boolean expulsat(){
-        Iterator itSancions = _sancions.iterator();
-        boolean expulsat=false;
-        while(!expulsat && itSancions.hasNext()){
-            expulsat = ((Sancio)itSancions.next()).getTipus()==Utils.TipusSancio.Vermella;
-        }
-        
-        return expulsat;
-    }
-   
     /**
      * @pre True
      * @return Cert si el jugador està exclòs actualment. Fals altrament.
@@ -192,30 +171,28 @@ public class Jugador extends Personatge
     
     /**
      * @pre True
-     * @post el Jugador ha anat a la Banqueta. El jugador ha sortit de pista si hi era
-     * @throws Exception Si no es pot afegir el jugador a la banqueta
+     * @post el Jugador ha anat a la Banqueta o ha marxat del partit. El jugador ha sortit de pista si hi era
+     * @param expulsat indica si el jugador ha estat expulsat
      */
-    public void entrarBanqueta() throws Exception{
-        _pista.treureJugador(this);
-        if (!_banqueta.plena())
-         _banqueta.AfegirJugador(this);
-        
-        if (random.nextInt(10) < 1){
+    public void entrarBanqueta(boolean expulsat) {
+        if(expulsat){
+            setPendentArbitre(false);
+            _equip.treureJugador(this);
+        }
+        else{
+            _equip.moureABanqueta(this);
             //10% de estar distret
-            _subject.desubscriure(this);
-        };
+            setPendentArbitre(random.nextInt(10) < 1);
+        }
     }
     
     /**
      * @pre True
      * @post el jugador ha anat a Pista. El jugador ha sortit de la banqueta si hi era
-     * @throws Exception Si no es pot afegir el jugador a pista
      */
-    public void entrarPista() throws Exception{
-        _banqueta.treureJugador(this);
-        if (!_pista.plena())
-            _pista.AfegirJugador(this);
-            setPendentArbitre(true);
+    public void entrarPista() {
+        _equip.moureAPista(this);
+        setPendentArbitre(true);
     }
     
     
@@ -253,7 +230,7 @@ public class Jugador extends Personatge
     
     @Override
     public void updateAmonestacio(int dorsal, String idEquip, Utils.TipusSancio tipus, int part, int minut) throws Exception{
-        if (_pista.pertany(idEquip) && dorsal == _dorsal){
+        if (_equip.hasID(idEquip) && dorsal == _dorsal){
             rebreAmonestacio(tipus, part, minut);
         }
     }
@@ -290,17 +267,18 @@ public class Jugador extends Personatge
         
         if ( groguesPart>=1){
             //implica com a minim 1 Exclusio{
-            
+            boolean expulsat =false;
             if (exclusions>=2){
                 // si ja tenia 2 exclusions i ara n'afegim 1 de nova --> expulsio directe
                 _sancions.add(new Sancio(minut,part,Utils.TipusSancio.Vermella));
+                expulsat = true;                
             }
             else{
                 // aplicar la exclusio de 2 minuts 
-                _sancions.add(new Sancio(minut,part,Utils.TipusSancio.Exclusio));
+                _sancions.add(new Sancio(minut,part,Utils.TipusSancio.Exclusio));               
             }
-            // en ambdós cassos el jugador pasara a la banqueta           
-            entrarBanqueta();            
+             entrarBanqueta(expulsat);     
+                       
         }
             
     }
