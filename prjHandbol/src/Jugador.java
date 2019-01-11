@@ -46,10 +46,6 @@ public class Jugador extends Personatge
     /** \brief Representa el rol actual en el que es posiciona el jugador */
     private Rol _rolActual;
     
-    /** \brief indica la posicio actual del jugador */
-    private Posicio3D _posicio;
-    
-    
     
     // Constructors -----------------------------------------------------------
     
@@ -217,12 +213,8 @@ public class Jugador extends Personatge
     
     
     public void realitzaXut(){
-        _rolActual.xutar();
-    }
-    
-    
-    public void realitzaPosicionar(){
-        _posicio = _rolActual.posicionar();
+        if(_rolActual.xutar())
+            anotarGol();
     }
     
     

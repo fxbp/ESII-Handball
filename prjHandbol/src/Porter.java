@@ -10,13 +10,9 @@ public class Porter implements Rol{
     // Metodes de la interficie Rol
     
     @Override
-    public void xutar(){
+    public boolean xutar(){
         //implementar el metode xutar
+        return false;
     }
-    
-    @Override
-    public Posicio3D posicionar(){
-        // Mirar quina posiio hauria de tornar
-        return new Posicio3D();
-    }
+       
 }

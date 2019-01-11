@@ -7,7 +7,7 @@ public class Arbitre extends Personatge  {
     
     // Atributs ----------------------------------------------------------------
     
-    private Comite _comite;
+    private ComiteSignleton _comite;
     
     
     // Constrctors -------------------------------------------------------------
@@ -20,7 +20,7 @@ public class Arbitre extends Personatge  {
      */
     public Arbitre(String nom, String cognom, String numLlicencia) {
         super( nom, cognom, numLlicencia);
-        _comite = Comite.getInstance();
+        _comite = ComiteSignleton.getInstance();
     }
 
     /**

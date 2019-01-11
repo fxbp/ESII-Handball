@@ -8,7 +8,7 @@ public abstract class Central implements Rol {
     
     
     @Override
-    public void xutar(){
-        // tots els centrals xutaran de la mateixa forma
+    public boolean xutar(){
+        return false;
     }
 }

@@ -8,13 +8,13 @@ import java.util.List;
  *
  * @author Francesc
  */
-public class Comite  implements SubjectArbitre {
+public class ComiteSignleton  implements SubjectArbitre {
     
     
     // Atributs ----------------------------------------------------------------
     
     /** \breif Instancia unica del comite Per fer el singleton. Es pot inicialitzar al inici perque no ocupa molta memoria*/    
-    private static Comite _instanciaUnica = new Comite();
+    private static ComiteSignleton _instanciaUnica = new ComiteSignleton();
     
      /* \brief Reprsenta tots els objectes que observen les decicions arbitrals */
     private List<ObserverArbitre> _observers;
@@ -28,7 +28,7 @@ public class Comite  implements SubjectArbitre {
      * @pre True
      * @post Ha creat un nou comite
      */
-    private Comite(){
+    private ComiteSignleton(){
         _observers = new ArrayList();
     }
     
@@ -57,7 +57,7 @@ public class Comite  implements SubjectArbitre {
     
     // Metodes estatics Singleton ---------------------------------------------
     
-    public static Comite getInstance(){
+    public static ComiteSignleton getInstance(){
         return _instanciaUnica;
     }
     

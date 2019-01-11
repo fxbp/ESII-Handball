@@ -1,6 +1,5 @@
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +31,7 @@ public class CarregaDades {
     
     public void inicialitzaDades() throws Exception{
                    
-        SubjectArbitre subject = Comite.getInstance();
+        SubjectArbitre subject = ComiteSignleton.getInstance();
         List<Equip> equips= fromCSV(new EquipCSVEntity(),llegirFitxer(FITXER_EQUIPS));
         List<Arbitre> arbitres = fromCSV(new ArbitreCSVEntity(),llegirFitxer(FITXER_ARBITRES));
         
