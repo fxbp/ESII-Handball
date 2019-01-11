@@ -19,7 +19,7 @@ public class handbol {
             loader.inicialitzaDades();
             partit = loader.getPartit();
             
-            while(accio() == 0){;}
+            while(accio() == 0);
             
         }
         catch(Exception e){
@@ -32,11 +32,12 @@ public class handbol {
     {
         System.out.println("---------------------------------------------------------");
         System.out.println("Menu:");
-        System.out.println("1: Notificar a tots els jugadors d'un equip un missatge");
+        System.out.println("1: Notificar un missatge a tots els jugadors de pista d'un equip");
         System.out.println("2: Amonestar a un jugador X amb tarja groga");
         System.out.println("3: Canviar al rol R a un jugador X");
         System.out.println("0: Finalitzar");
         System.out.println("---------------------------------------------------------");
+        System.out.println();
     }
     
     public static String demanarAccio(String message)
@@ -46,36 +47,70 @@ public class handbol {
         return value;
     }
     
+    public static int obtenirOpcio(int minim, int maxim, String accio){
+     int value= -1;
+        do {
+            try{
+            value = Integer.parseInt(demanarAccio(accio));
+            }
+            catch (Exception e){
+                value=-1;
+            }
+            finally{
+                if (value < minim || value > maxim){
+                    System.err.println("Opció no valida!!");
+                    System.err.println();
+                }
+            }
+        } while (value < minim || value > maxim);
+        
+        return value;
+    }
+    
+
     public static int accio()
     {
         mostrarMenu();
-        int value= Integer.parseInt(demanarAccio("Introdueix l'index que vols realitzar:"));
-        if(value == 1){ ;}
-        else if(value == 2){ ;}
-        else if(value == 3){ ;}
-        else if(value == 0){return 1;}
-        else{System.out.println("Valor no reconegut");}
+        int value = obtenirOpcio(0,3, "Introdueix l'index que vols realitzar:");
+       
+        
+        switch (value) {
+            case 1:
+                notificarATots();
+                break;
+            case 2:
+                ;
+                break;
+            case 3:
+                ;
+                break;
+            case 0:
+                return 1;
+            default:
+                System.out.println("Valor no reconegut");
+                break;
+        }
         
         return 0;
     }
     
-    public static void NotificarATots()
+    public static void notificarATots()
     {
         partit.mostrarEquips();
-        int equipEscollit = Integer.parseInt(demanarAccio("Entra l'index de l'equip que vols escollir"));
+        int equipEscollit= obtenirOpcio(1,2,"Entra l'index de l'equip que vols escollir");
+        //int equipEscollit = Integer.parseInt(demanarAccio("Entra l'index de l'equip que vols escollir"));
         Equip equip = partit.obtenirEquip(equipEscollit);
         
         if(equip != null)
         {
             
             String missatge = demanarAccio("Introdueix el missatge que vols enviar");
-            
+            equip.enviarMissatgePista(missatge);
         }
         else
         {
-            System.out.println("Index incorrecte");
-            System.out.println();
-            NotificarATots();
+            System.err.println("L'equip no existeix");
+            System.err.println();
         }
         
     }

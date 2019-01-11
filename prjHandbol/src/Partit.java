@@ -54,7 +54,7 @@ public class Partit {
     {
         System.out.println("Equips disputant el partit:");
         System.out.println("1: Local "+ _local.toString());
-        System.out.println("2: Visitant "+ _local.toString());
+        System.out.println("2: Visitant "+ _visitant.toString());
         System.out.println();
     }
     
