@@ -6,7 +6,7 @@ import java.util.List;
  *
  * @author Francesc
  */
-public class MissatgeCSVParser implements CSVParser{
+public class MissatgeCSVEntity implements CSVEntity{
     
     final static int ENTRENADOR=0;
     final static int ID=1;
@@ -16,7 +16,7 @@ public class MissatgeCSVParser implements CSVParser{
     private List<Entrenador> _entrenadors;
     private SubjectArbitre _subject;
     
-    public MissatgeCSVParser(List<Entrenador> entrenadors){
+    public MissatgeCSVEntity(List<Entrenador> entrenadors){
        _entrenadors = entrenadors;
     }
     

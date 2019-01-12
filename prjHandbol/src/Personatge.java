@@ -37,5 +37,10 @@ public abstract class Personatge implements Identificable {
     public boolean hasID(String id) {
        return _numLlicencia.equals(id);
     }
-       
+    
+    @Override
+    public String toString()
+    {
+        return "NOM: " + _nom + " " + _cognom + " Numero Llicencia: " + _numLlicencia;
+    }
 }

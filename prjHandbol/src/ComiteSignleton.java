@@ -8,13 +8,13 @@ import java.util.List;
  *
  * @author Francesc
  */
-public class Comite  implements SubjectArbitre {
+public class ComiteSignleton  implements SubjectArbitre {
     
     
     // Atributs ----------------------------------------------------------------
     
     /** \breif Instancia unica del comite Per fer el singleton. Es pot inicialitzar al inici perque no ocupa molta memoria*/    
-    private static Comite _instanciaUnica = new Comite();
+    private static ComiteSignleton _instanciaUnica = new ComiteSignleton();
     
      /* \brief Reprsenta tots els objectes que observen les decicions arbitrals */
     private List<ObserverArbitre> _observers;
@@ -28,7 +28,7 @@ public class Comite  implements SubjectArbitre {
      * @pre True
      * @post Ha creat un nou comite
      */
-    private Comite(){
+    private ComiteSignleton(){
         _observers = new ArrayList();
     }
     
@@ -42,13 +42,14 @@ public class Comite  implements SubjectArbitre {
      * @pre dorsal > 0 && tipus != null && part > 0 && minut > 0
      * @post Ha registrat l'amonestacio
      * @param dorsal dorsal del jugador a qui s'ha amonestat
+     * @param idEquip identificador del equip del jugador
      * @param tipus tipus d'amonestacio
      * @param part part en la qual s'ha realitzat l'amonestacio
      * @param minut minut en el qual s'ha realitzat l'amonestacio
      * @throws Exception si no es poden realitzar correctament les accions
      */
-    public void registrarAmonestacio(int dorsal, Sancio.TipusSancio tipus, int part, int minut) throws Exception {
-        notificar(dorsal,tipus, part, minut);
+    public void registrarAmonestacio(int dorsal, String idEquip, Utils.TipusSancio tipus, int part, int minut) throws Exception {
+        notificar(dorsal, idEquip, tipus, part, minut);
     }
     
     
@@ -56,7 +57,7 @@ public class Comite  implements SubjectArbitre {
     
     // Metodes estatics Singleton ---------------------------------------------
     
-    public static Comite getInstance(){
+    public static ComiteSignleton getInstance(){
         return _instanciaUnica;
     }
     
@@ -78,11 +79,11 @@ public class Comite  implements SubjectArbitre {
     }
 
     @Override
-    public void notificar(int dorsal, Sancio.TipusSancio tipus, int part, int minut) throws Exception {
+    public void notificar(int dorsal, String idEquip,Utils.TipusSancio tipus, int part, int minut) throws Exception {
         Iterator itObservers = _observers.iterator();
         
         while (itObservers.hasNext()){
-            ((ObserverArbitre)itObservers.next()).updateAmonestacio(dorsal, tipus, part, minut);
+            ((ObserverArbitre)itObservers.next()).updateAmonestacio(dorsal, idEquip, tipus, part, minut);
         }
     }
     

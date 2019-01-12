@@ -8,7 +8,7 @@ import java.util.Set;
  *
  * @author Francesc
  */
-public class EntrenadorCSVParser implements CSVParser {
+public class EntrenadorCSVEntity implements CSVEntity {
 
     final static int NOM=0;
     final static int COGNOM=1;
@@ -18,7 +18,7 @@ public class EntrenadorCSVParser implements CSVParser {
     private List<Equip> _equips;
     private SubjectArbitre _subject;
     
-    public EntrenadorCSVParser(List<Equip> equips, SubjectArbitre subject){
+    public EntrenadorCSVEntity(List<Equip> equips, SubjectArbitre subject){
         _equips = equips;
         _subject = subject;
     }

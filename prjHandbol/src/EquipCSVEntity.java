@@ -3,7 +3,7 @@
  *
  * @author Francesc
  */
-public class EquipCSVParser implements CSVParser {
+public class EquipCSVEntity implements CSVEntity {
     
        final static int ID_EQUIP=0;
        final static int NOM=1;

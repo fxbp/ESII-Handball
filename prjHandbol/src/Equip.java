@@ -1,4 +1,8 @@
 
+import java.util.HashMap;
+import java.util.Map;
+
+
 
 /**
  * \brief Representa un dels equips del joc de handbol
@@ -21,10 +25,10 @@ public class Equip implements Identificable {
     private Entrenador _entrenador;
 
     /** \brief representa els jugadors de la banqueta*/
-    private Banqueta _banqueta;
+    private Map<Integer,Jugador> _banqueta;
     
     /** \brief representa els jugadors que son a pista*/
-    private Pista _pista;
+    private Map<Integer,Jugador> _pista;
     
     
     // Constructors -----------------------------------------------------------
@@ -40,32 +44,13 @@ public class Equip implements Identificable {
         _nomEquip = nomEquip;
         _ciutat = ciutat;
         
-        _pista = new Pista(this);
-        _banqueta = new Banqueta(this);
+        _pista = new HashMap();
+        _banqueta = new HashMap();
     }
     
     
     // Metodes Publics ---------------------------------------------------------
-    
-    
-   
-    
-    /**
-     * @pre Cert
-     * @return la Banqueta de l'equip
-     */
-    public Banqueta getBanqueta(){
-         return _banqueta;
-    }
-    
-    /**
-     * @pre Cert
-     * @return la pista de l'equip
-     */
-    public Pista getPista(){
-        return _pista;
-    }
-    
+        
     /**
      * @pre Cert
      * @post Ha afegit l'entrenador a l'equip
@@ -76,26 +61,87 @@ public class Equip implements Identificable {
     }
     
     /**
+     * @pre jugador != null
+     * @post S'ha tret el jugador de la banqueta si hi era i s'ha posat a pista
+     * @param jugador Jugador que es vol moura a la pista
+     */
+    public void moureAPista(Jugador jugador){
+        int dorsal = jugador.getDorsal();
+        if(_banqueta.containsKey(dorsal)){
+            _banqueta.remove(dorsal);
+        }
+        if(!_pista.containsKey(dorsal)){
+           _pista.put(dorsal, jugador);
+        }
+    }
+    
+    /**
+     * @pre jugador != null
+     * @post s'ha tret el jugador de pista i s'ha posat a banqueta si hi era
+     * @param jugador jugador que ha d'anar a la banqueta
+     */
+    public void moureABanqueta(Jugador jugador){
+         int dorsal = jugador.getDorsal();
+        if(_pista.containsKey(dorsal)){
+            _pista.remove(dorsal);
+        }
+        if(!_banqueta.containsKey(dorsal)){
+           _banqueta.put(dorsal, jugador);
+        }
+    }
+    
+    /**
+     * @pre jugador != nullç
+     * @post s'ha tret el jugador de l'equip
+     * @param jugador Jugador que s'ha de treure de l'equip
+     */
+    public void treureJugador(Jugador jugador){
+       int dorsal = jugador.getDorsal();
+        if(_banqueta.containsKey(dorsal)){
+            _banqueta.remove(dorsal);
+        }
+        if(_pista.containsKey(dorsal)){
+           _pista.remove(dorsal);;
+        }
+    }
+    
+    
+    /**
      * @pre pista ha estat afegida
      * @param missatge String que s'envia als jugadors que estan a pista
-     * @throws Exception si la pista no està afegida o es null no es pot enviar el missatge
      */
-    public void EnviarMissatgePista(String missatge) throws Exception{
-        if (_pista == null)
-            throw new Exception("La pista no està assignada a l'equip");
-        _pista.enviarMissatge(missatge);
+    public void enviarMissatgePista(String missatge) {
+        enviarMissatge(missatge, _pista);
     }
+    
     
     /**
      * @pre banqueta ha estat afegida
      * @post s'ha enviat el missatge a tots els jugadors que son a la banqueta
      * @param missatge String que s'envia als jugadors que estan a banqueta
-     * @throws Exception Si la banqueta no està afegida o és null no es pot enviar el missatge
      */
-    public void EnviarMissatgeBanqueta(String missatge) throws Exception{
-        if (_banqueta == null)
-            throw new Exception("La banqueta no està assignada a l'equip");
-        _banqueta.enviarMissatge(missatge);
+    public void enviarMissatgeBanqueta(String missatge) {
+        enviarMissatge(missatge, _banqueta);
+    }
+    
+    @Override
+    public String toString()
+    {
+        return "Id "+ _idEquip + " Nom " + _nomEquip + " de " + _ciutat;
+    }
+    
+    public String getId()
+    {
+        return _idEquip;
+    }
+    
+    public void mostrarPista()
+    {
+        System.out.println("Jugadors a pista de l'equip " + _nomEquip + ":");
+        for(Jugador j : _pista.values())
+        {
+            System.out.println(j.toString());
+        }
     }
     
     
@@ -104,5 +150,18 @@ public class Equip implements Identificable {
     @Override
     public boolean hasID(String id){
         return _idEquip.equals(id);
+    }
+    
+    // Metodes Privats --------------------------------------------------------
+    
+    /**
+     * @pre missatge != null && desti !=null
+     * @param missatge missatge que s'ha d'enviar als jugadors de desti
+     * @param desti coleccio de jugadors que han de rebre el missatge
+     */
+    private void enviarMissatge(String missatge, Map<Integer,Jugador> desti){
+        for(Jugador j : desti.values()){
+            j.rebreMissatgeEntrenador(missatge);
+        }
     }
 }

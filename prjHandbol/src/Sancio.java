@@ -6,11 +6,6 @@
  */
 public class Sancio {
     
-    public enum TipusSancio {
-        Groga,
-        Vermella,
-        Exclusio
-    }
     
     // Atributs ---------------------------------------------------------------
     
@@ -21,7 +16,7 @@ public class Sancio {
     private int _part; 
     
     /* \brief tipus de sancio que ha rebut el jugador */
-    private TipusSancio _tipus;
+    private Utils.TipusSancio _tipus;
     
     // Constructors -----------------------------------------------------------
     
@@ -32,7 +27,7 @@ public class Sancio {
      * @param part part en que es produeix la sanció
      * @param tipus Tipus de la sancio (Groga, Vermella o Exclusió)
      */
-    public Sancio(int minut, int part, TipusSancio tipus){
+    public Sancio(int minut, int part, Utils.TipusSancio tipus){
         _minut=minut;
         _part=part;
         _tipus=tipus;
@@ -53,7 +48,7 @@ public class Sancio {
      * @pre True
      * @return El tipus de sancio (Groga, Vermella o Exclusio)
      */
-    public TipusSancio getTipus(){
+    public Utils.TipusSancio getTipus(){
         return _tipus;
     }
 }
