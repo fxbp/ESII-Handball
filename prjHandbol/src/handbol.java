@@ -82,15 +82,14 @@ public class handbol {
                 sancionarJugador();
                 break;
             case 3:
-                ;
+                canviarRolJugador();
                 break;
             case 0:
                 return 1;
             default:
                 System.out.println("Valor no reconegut");
                 break;
-        }
-        
+        }  
         return 0;
     }
     
@@ -153,6 +152,27 @@ public class handbol {
         {
             showError("Arbitre");
         }
+    }
+    
+    public static void canviarRolJugador()
+    {
+        partit.mostrarEquips();
+            int equipEscollit= obtenirOpcio(1,2,"Entra l'index de l'equip que vols escollir");
+            Equip equip = partit.obtenirEquip(equipEscollit);
+
+            if(equip != null)
+            {
+                equip.mostrarPista();
+                int dorsal = obtenirOpcio(1,7,"Entra el dorsal del jugador");
+                
+                
+                
+                
+            }
+            else
+            {
+                showError("Equip");
+            }
     }
     
     private static void showError(String x)

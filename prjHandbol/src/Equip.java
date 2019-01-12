@@ -144,7 +144,6 @@ public class Equip implements Identificable {
         }
     }
     
-    
     // Metodes Interficie identificable
     
     @Override
