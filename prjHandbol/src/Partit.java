@@ -58,6 +58,14 @@ public class Partit {
         System.out.println();
     }
     
+    public void mostrarArbitres()
+    {
+        System.out.println("Arbitres del partit:");
+        System.out.println("1: "+ _primerArbitre.toString());
+        System.out.println("2: "+ _segonArbitre.toString());
+        System.out.println();
+    }
+    
     public Equip obtenirEquip(int value)
     {
         if(value == 1)
@@ -67,6 +75,22 @@ public class Partit {
         else if(value == 2)
         {
             return _visitant;
+        }
+        else
+        {
+            return null;
+        }
+    }
+    
+    public Arbitre obtenirArbitre(int value)
+    {
+        if(value == 1)
+        {
+            return _primerArbitre;
+        }
+        else if(value == 2)
+        {
+            return _segonArbitre;
         }
         else
         {

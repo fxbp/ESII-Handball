@@ -269,9 +269,14 @@ public class Jugador extends Personatge
                 // aplicar la exclusio de 2 minuts 
                 _sancions.add(new Sancio(minut,part,Utils.TipusSancio.Exclusio));               
             }
-             entrarBanqueta(expulsat);     
-                       
+             entrarBanqueta(expulsat);   
         }
             
     }
-}
+    
+    @Override
+    public String toString()
+    {
+        return _dorsal + " " + super.toString();
+    }
+ }

@@ -130,6 +130,20 @@ public class Equip implements Identificable {
         return "Id "+ _idEquip + " Nom " + _nomEquip + " de " + _ciutat;
     }
     
+    public String getId()
+    {
+        return _idEquip;
+    }
+    
+    public void mostrarPista()
+    {
+        System.out.println("Jugadors a pista de l'equip" + this.toString());
+        for(Jugador j : _pista.values())
+        {
+            System.out.println(j.toString());
+        }
+    }
+    
     
     // Metodes Interficie identificable
     

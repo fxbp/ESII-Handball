@@ -39,8 +39,9 @@ public class Arbitre extends Personatge  {
         
     }
     
-    
-   
-    
-    
+    @Override
+    public String toString()
+    {
+        return super.toString();
+    }   
 }

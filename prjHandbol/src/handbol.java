@@ -79,7 +79,7 @@ public class handbol {
                 notificarATots();
                 break;
             case 2:
-                ;
+                sancionarJugador();
                 break;
             case 3:
                 ;
@@ -113,6 +113,52 @@ public class handbol {
             System.err.println();
         }
         
+    }
+    
+    public static void sancionarJugador()
+    {
+        int part = obtenirOpcio(1,4,"Entrar el numero de la part actual");
+        int minut = obtenirOpcio(1,10,"Entrar minut de la sancio");
+        
+        partit.mostrarArbitres();
+        int arbitre = obtenirOpcio(1,2,"Entra l'index de l'arbitre que sancionarà a un jugador");
+        Arbitre arbit = partit.obtenirArbitre(arbitre);
+        
+        if(arbit != null)
+        {
+            partit.mostrarEquips();
+            int equipEscollit= obtenirOpcio(1,2,"Entra l'index de l'equip que vols escollir");
+            Equip equip = partit.obtenirEquip(equipEscollit);
+
+            if(equip != null)
+            {
+                equip.mostrarPista();
+                int jugador = obtenirOpcio(1,5,"Entra el dorsal del jugador a sancionar");
+                
+                try{
+                    arbit.AmonestarJugador(jugador, equip.getId(), Utils.TipusSancio.Groga, part, minut);
+                }
+                catch(Exception e)
+                {
+                    System.err.println("Something went wrong");
+                }
+                
+            }
+            else
+            {
+                showError("Equip");
+            }
+        }       
+        else
+        {
+            showError("Arbitre");
+        }
+    }
+    
+    private static void showError(String x)
+    {
+        System.err.println(x + " no existeix");
+        System.err.println();
     }
      
     
