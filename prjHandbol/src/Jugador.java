@@ -256,7 +256,7 @@ public class Jugador extends Personatge
         
         //afegir la sancio actual
         _sancions.add(new Sancio(minut,part,tipus));
-        
+        System.out.println(toString() + ": He rebut una targeta groga!!\n");
         if ( groguesPart>=1){
             //implica com a minim 1 Exclusio{
             boolean expulsat =false;
@@ -264,13 +264,17 @@ public class Jugador extends Personatge
                 // si ja tenia 2 exclusions i ara n'afegim 1 de nova --> expulsio directe
                 _sancions.add(new Sancio(minut,part,Utils.TipusSancio.Vermella));
                 expulsat = true;                
+                System.out.println(toString() + ": He estat expulsat!!\n");
             }
             else{
                 // aplicar la exclusio de 2 minuts 
-                _sancions.add(new Sancio(minut,part,Utils.TipusSancio.Exclusio));               
+                _sancions.add(new Sancio(minut,part,Utils.TipusSancio.Exclusio));
+                System.out.println(toString() + ": He estat exclòs!!\n");               
             }
-             entrarBanqueta(expulsat);   
+            entrarBanqueta(expulsat); 
+             
         }
+        
             
     }
     
