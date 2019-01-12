@@ -1,6 +1,6 @@
 idEntrenador;idMissage;Text
-"E001";"M001;"Atacar per les bandes"
-"E001";"M002;"Presionar pel centre"
-"E001";"M003";"Atacar per la dreta"
-"E002";"M001";"Defensar junts"
-"E002";"M002";"Cobrir les bandes";
+E001;M001;Atacar per les bandes
+E001;M002;Presionar pel centre
+E001;M003;Atacar per la dreta
+E002;M001;Defensar junts
+E002;M002;Cobrir les bandes;
