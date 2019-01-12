@@ -277,6 +277,6 @@ public class Jugador extends Personatge
     @Override
     public String toString()
     {
-        return _dorsal + " " + super.toString();
+        return "Dorsal: "+ _dorsal + " " + super.toString();
     }
  }

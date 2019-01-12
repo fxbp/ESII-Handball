@@ -137,7 +137,7 @@ public class Equip implements Identificable {
     
     public void mostrarPista()
     {
-        System.out.println("Jugadors a pista de l'equip" + this.toString());
+        System.out.println("Jugadors a pista de l'equip " + _nomEquip + ":");
         for(Jugador j : _pista.values())
         {
             System.out.println(j.toString());

@@ -133,7 +133,7 @@ public class handbol {
             if(equip != null)
             {
                 equip.mostrarPista();
-                int jugador = obtenirOpcio(1,5,"Entra el dorsal del jugador a sancionar");
+                int jugador = obtenirOpcio(1,7,"Entra el dorsal del jugador a sancionar");
                 
                 try{
                     arbit.AmonestarJugador(jugador, equip.getId(), Utils.TipusSancio.Groga, part, minut);
