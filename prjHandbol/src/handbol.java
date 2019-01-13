@@ -73,15 +73,14 @@ public class handbol {
      int value= -1;
         do {
             try{
-            value = Integer.parseInt(demanarAccio(accio));
+                value = Integer.parseInt(demanarAccio(accio));
             }
             catch (Exception e){
                 value=-1;
             }
             finally{
                 if (value < minim || value > maxim){
-                    System.err.println("Opció no valida!!");
-                    System.err.println();
+                    showError("Opció no valida!!");
                 }
             }
         } while (value < minim || value > maxim);
@@ -106,8 +105,7 @@ public class handbol {
             }
             finally{
                 if (!valors.contains(value)){
-                    System.err.println("Opció no valida!!");
-                    System.err.println();
+                    showError("Opció no valida!!");
                 }
             }
         } while (!valors.contains(value));
@@ -138,7 +136,7 @@ public class handbol {
             case 0:
                 return 1;
             default:
-                System.out.println("Valor no reconegut");
+                showError("Valor no reconegut");
                 break;
         }  
         return 0;
@@ -163,8 +161,7 @@ public class handbol {
         }
         else
         {
-            System.err.println("L'equip no existeix");
-            System.err.println();
+            showError("L'equip no existeix");
         }
         
     }
@@ -199,18 +196,17 @@ public class handbol {
                 }
                 catch(Exception e)
                 {
-                    System.err.println("Something went wrong");
+                    //
                 }
-                
             }
             else
             {
-                showError("Equip");
+                showError("L'equip no existeix");
             }
         }       
         else
         {
-            showError("Arbitre");
+            showError("L'Arbitre no existeix");
         }
     }
     
@@ -237,7 +233,7 @@ public class handbol {
         }
         else
         {
-            showError("Equip");
+            showError("L'equip no existeix");
         }
     }
     
@@ -248,8 +244,9 @@ public class handbol {
      */
     private static void showError(String x)
     {
-        System.err.println(x + " no existeix");
-        System.err.println();
+        System.err.println(x);
+        System.out.flush();
+        System.err.flush();
     }
      
     
