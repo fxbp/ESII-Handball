@@ -155,6 +155,10 @@ public class Equip implements Identificable {
         }
     }
     
+    /**
+     * @pre dades inicialitzades
+     * @return es retorna un llistat amb els dorsals dels jugadors a pista
+     */
     public List<Integer> getDorsalsPista(){
         List<Integer> result= new ArrayList();
         
@@ -165,21 +169,19 @@ public class Equip implements Identificable {
         return result;
     }
     
+    /**
+     * @pre dades inicialitzades, dorsal del jugador existen i rol no buit
+     * @post obte el jugador amb dorsal entrat i l'hi assigna el nouROl
+     */
     public void canviarRolA(int dorsal, Rol nouRol)
-    {
-        Jugador x = null;
-        
+    {        
         for(Jugador j : _pista.values()){
             if(j.getDorsal() == dorsal)
             {
-                x=j;
+                j.canviaRol(nouRol);
                 break;
             }
         }
-        if(x != null){
-            x.canviaRol(nouRol);
-        }
-       
     }
     
     // Metodes Interficie identificable

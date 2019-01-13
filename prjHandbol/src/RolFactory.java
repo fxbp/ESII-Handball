@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
- * @author Adria
+ * \brief FactoryMethod de rols existents per a jugadors
+ * @file RolFactory.java
  */
 public class RolFactory {
-      
+     
+    // Atributs ----------------------------------------------------------------
+    /** \brief llistat de Rols disponibles per als jugadors en format String */
     private final String[] arrayRols = {
         "CentralAvancat",
         "CentralCentre",
@@ -23,11 +19,19 @@ public class RolFactory {
         "Porter"
     };
     
+     // Constructors -----------------------------------------------------------
+    
     public RolFactory()
     {
         //
     }
     
+    // Metodes Publics --------------------------------------------------------
+    
+    /**
+     * @pre array rols inicialitzat
+     * @post S'han mostrat per pantalla els diferents rols disponibles
+     */
     public void mostrarRols()
     {
         System.out.println("Rols a escollir:");
@@ -37,6 +41,11 @@ public class RolFactory {
         }
     }
     
+    /**
+     * @pre valors inicialitzats
+     * @return S'obte mitjançant Utils l'objecte Heredat de rol inicialitzat desitjat
+     * @param rolIndex Enter positiu <= arrayRols.length. Indica la posicio del rol desitjada
+     */
     public Rol getRol(int rolIndex)
     {
         return Utils.obtenirRol(arrayRols[rolIndex-1]);

@@ -66,7 +66,11 @@ public class Entrenador extends Personatge
     public void updateAmonestacio(int dorsal, String idEquip, Utils.TipusSancio tipus, int part, int minut){
         // Realitzar les accions de l'entrenador segons 1 jugador seu ha estat sancionat
     }
-
+    
+    /**
+     * @pre missatge no buit
+     * @post s'ha enviat un missatge a tots els jugadors de l'equip que estan a pista
+     */
     public void enviarMissatgePista(String missatge)
     {
         try

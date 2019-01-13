@@ -38,10 +38,4 @@ public class Arbitre extends Personatge  {
         _comite.registrarAmonestacio(dorsal, idEquip, tipus, part, minut);
         
     }
-    
-    @Override
-    public String toString()
-    {
-        return super.toString();
-    }   
 }

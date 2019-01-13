@@ -99,7 +99,10 @@ public class Jugador extends Personatge
             _subject.desubscriure(this);
     }
     
-    
+    /**
+     * @pre dades inicialitzades
+     * @post el jugador s'afegeix una sancio
+     */
     public void afegirSancioInicial(Sancio sancio){
         _sancions.add(sancio);
     }
