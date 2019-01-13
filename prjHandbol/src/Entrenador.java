@@ -132,6 +132,7 @@ public class Entrenador extends Personatge
      */
     public void mostrarMissatges()
     {
+        System.out.println("Missatges disponibles:");
         for(int i = 0; i<_missatges.size(); i++)
         {
             System.out.println(i+1 + ": " + _missatges.get(i).toString());
