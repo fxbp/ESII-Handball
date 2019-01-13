@@ -162,7 +162,7 @@ public class Jugador extends Personatge
      */
     public void rebreMissatgeEntrenador(String missatge){
         // En aquesta implementació farem que aquest metode escrigui a la consola
-        System.out.println("Dorsal " + Integer.toString(_dorsal) +": L'entrenador m'ha enviat: ");
+        System.out.println("Dorsal " + Integer.toString(_dorsal) + " " + super.toString() +": L'entrenador m'ha enviat: ");
         System.out.println(missatge);
         System.out.println();
     }

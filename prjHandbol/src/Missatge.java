@@ -26,5 +26,11 @@ public class Missatge {
         _id=id;
         _descripcio=descripcio;
     }
+    
+    @Override
+    public String toString()
+    {
+        return _descripcio;
+    }
 
 }

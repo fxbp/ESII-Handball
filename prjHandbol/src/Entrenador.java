@@ -36,6 +36,7 @@ public class Entrenador extends Personatge
         
         _missatges = new ArrayList();
         _equip = equip;
+        _equip.setEntrenador(this);
     }
     
     // Metodes publics --------------------------------------------------------
@@ -68,6 +69,19 @@ public class Entrenador extends Personatge
     }
     
     /**
+     * @pre cert
+     * @post s'ha enviat el missatge predefinit a tots els jugadors de l'equip, si l'index es inexistent s'ha enviat string buit
+     */
+    public void enviarMissatgePista(int IndexMissatge)
+    {
+        Missatge missatge = _missatges.get(IndexMissatge-1);
+        if(missatge != null)
+           enviarMissatgePista(missatge.toString());
+        else
+           enviarMissatgePista("");
+    }
+    
+    /**
      * @pre missatge no buit
      * @post s'ha enviat un missatge a tots els jugadors de l'equip que estan a pista
      */
@@ -80,9 +94,41 @@ public class Entrenador extends Personatge
         catch(Exception e)
         {
             //
-        }
-        
+        } 
     }
     
+    /**
+     * @pre dades inicialitzades
+     * @return es retorna la quantitat de missatges disponibles
+     */
+    public int midaLlistaMissatges()
+    {
+        return _missatges.size();
+    }
     
+    public String translate(String missatge)
+    {
+        int auxiliar = Integer.parseInt(missatge);
+        if(auxiliar>0 && auxiliar <= _missatges.size())
+        {
+            return _missatges.get(auxiliar-1).toString();
+        }
+        else
+        {
+            return missatge;
+        }
+    }
+    
+    /**
+     * @pre missatge no buit
+     * @post s'ha enviat un missatge a tots els jugadors de l'equip que estan a pista
+     */
+    public void mostrarMissatges()
+    {
+        for(int i = 0; i<_missatges.size(); i++)
+        {
+            System.out.println(i+1 + ": " + _missatges.get(i).toString());
+        }
+        System.out.println();
+    } 
 }

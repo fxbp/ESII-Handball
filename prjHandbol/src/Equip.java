@@ -110,20 +110,28 @@ public class Equip implements Identificable {
     
     /**
      * @pre pista ha estat afegida
-     * @param missatge String que s'envia als jugadors que estan a pista
+     * @param missatge String que s'envia als jugadors que estan a pista o be index del missatge predefinit
      */
     public void enviarMissatgePista(String missatge) {
-        enviarMissatge(missatge, _pista);
+        if(_entrenador!= null)
+        {
+            missatge = _entrenador.translate(missatge);
+        }
+        enviarMissatge(missatge, _banqueta);
     }
     
     
     /**
      * @pre banqueta ha estat afegida
      * @post s'ha enviat el missatge a tots els jugadors que son a la banqueta
-     * @param missatge String que s'envia als jugadors que estan a banqueta
+     * @param missatge String que s'envia als jugadors que estan a banqueta o be index del missatge predefinit
      */
     public void enviarMissatgeBanqueta(String missatge) {
-        enviarMissatge(missatge, _banqueta);
+        if(_entrenador!= null)
+        {
+            missatge = _entrenador.translate(missatge);
+        }
+        enviarMissatge(missatge, _banqueta);     
     }
     
     @Override
@@ -183,6 +191,16 @@ public class Equip implements Identificable {
                 break;
             }
         }
+    }
+    
+    public int mostrarMissatgesEntrenador()
+    {
+        if(_entrenador != null)
+        {
+            _entrenador.mostrarMissatges();
+            return _entrenador.midaLlistaMissatges();
+        }
+        else return 0;
     }
     
     // Metodes Interficie identificable

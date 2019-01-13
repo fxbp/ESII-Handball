@@ -157,8 +157,8 @@ public class handbol {
         
         if(equip != null)
         {
-            
-            String missatge = demanarAccio("Introdueix el missatge que vols enviar");
+            equip.mostrarMissatgesEntrenador();
+            String missatge = demanarAccio("Introdueix el missatge que vols enviar"); 
             equip.enviarMissatgePista(missatge);
         }
         else
