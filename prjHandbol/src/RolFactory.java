@@ -39,6 +39,7 @@ public class RolFactory {
         {
             System.out.println(i+ ": "+arrayRols[i-1]);
         }
+        System.out.println();
     }
     
     /**

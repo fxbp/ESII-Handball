@@ -153,6 +153,7 @@ public class Equip implements Identificable {
         {
             System.out.println(j.toString());
         }
+        System.out.println();
     }
     
     /**

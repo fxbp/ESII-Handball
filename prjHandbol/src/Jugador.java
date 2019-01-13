@@ -181,7 +181,7 @@ public class Jugador extends Personatge
         else{
             _equip.moureABanqueta(this);
             //10% de estar distret
-            setPendentArbitre(random.nextInt(10) < 1);
+            setPendentArbitre(random.nextInt(10) > 1);
         }
     }
     
@@ -213,6 +213,7 @@ public class Jugador extends Personatge
     public void canviaRol(Rol nouRol){
         _rolActual = nouRol;
         System.out.println("Soc " + super.toString() + ", hi he canviat al rol "+ nouRol.toString());
+        System.out.println();
     }
     
     
@@ -275,11 +276,8 @@ public class Jugador extends Personatge
                 _sancions.add(new Sancio(minut,part,Utils.TipusSancio.Exclusio));
                 System.out.println(toString() + ": He estat exclòs!!\n");               
             }
-            entrarBanqueta(expulsat); 
-             
-        }
-        
-            
+            entrarBanqueta(expulsat);     
+        }           
     }
     
     @Override

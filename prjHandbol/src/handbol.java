@@ -21,7 +21,10 @@ public class handbol {
             loader.inicialitzaDades();
             partit = loader.getPartit();
             
-            while(accio() == 0);
+            while(accio() == 0)
+            {
+              //Iteration
+            }
             
         }
         catch(Exception e){
@@ -55,6 +58,7 @@ public class handbol {
     {
         System.out.println(message);
         String value = scanner.nextLine();
+        System.out.println();
         return value;
     }
     
@@ -81,7 +85,7 @@ public class handbol {
                 }
             }
         } while (value < minim || value > maxim);
-        
+       
         return value;
     }
     
