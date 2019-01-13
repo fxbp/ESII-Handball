@@ -80,8 +80,9 @@ public class ComiteSignleton  implements SubjectArbitre {
 
     @Override
     public void notificar(int dorsal, String idEquip,Utils.TipusSancio tipus, int part, int minut) throws Exception {
-        Iterator itObservers = _observers.iterator();
-        
+        // com que la llista es pot modificar degut a que es poden dessubscriure observers, primer fem una copia i iterem sobre la copia
+        List iterable= new ArrayList(_observers);
+        Iterator itObservers = iterable.listIterator();
         while (itObservers.hasNext()){
             ((ObserverArbitre)itObservers.next()).updateAmonestacio(dorsal, idEquip, tipus, part, minut);
         }

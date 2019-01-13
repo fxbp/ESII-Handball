@@ -1,5 +1,7 @@
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -130,11 +132,20 @@ public class Equip implements Identificable {
         return "Id "+ _idEquip + " Nom " + _nomEquip + " de " + _ciutat;
     }
     
+    /**
+     * @pre True
+     * @return l'identificador de l'equip
+     */
     public String getId()
     {
         return _idEquip;
     }
     
+    
+    /**
+     * @pre True
+     * @post Ha mostrat per pantalla la informació dels jugadors de la pista
+     */
     public void mostrarPista()
     {
         System.out.println("Jugadors a pista de l'equip " + _nomEquip + ":");
@@ -144,6 +155,19 @@ public class Equip implements Identificable {
         }
     }
     
+<<<<<<< HEAD
+=======
+    public List<Integer> getDorsalsPista(){
+        List<Integer> result= new ArrayList();
+        
+        for(Jugador j : _pista.values()){
+            result.add(j.getDorsal());
+        }
+        
+        return result;
+    }
+    
+>>>>>>> DEV
     // Metodes Interficie identificable
     
     @Override

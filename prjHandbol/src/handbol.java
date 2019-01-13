@@ -2,6 +2,7 @@
  * @file handbol.java
  */
 
+import java.util.List;
 import java.util.Scanner;
 
 /**\brief handbol classe main que carrega les dades i executa les opcions de menu: Entrenador envia missatge a pista, Arbitre amonesta a jugador X (targeta groga) i Jugador X agafa el rol 
@@ -67,6 +68,26 @@ public class handbol {
         return value;
     }
     
+    public static int obtenirOpcio(List<Integer> valors, String accio){
+     int value= -1;
+        do {
+            try{
+            value = Integer.parseInt(demanarAccio(accio));
+            }
+            catch (Exception e){
+                value=-1;
+            }
+            finally{
+                if (!valors.contains(value)){
+                    System.err.println("Opció no valida!!");
+                    System.err.println();
+                }
+            }
+        } while (!valors.contains(value));
+        
+        return value;
+    }
+    
 
     public static int accio()
     {
@@ -116,8 +137,8 @@ public class handbol {
     
     public static void sancionarJugador()
     {
-        int part = obtenirOpcio(1,4,"Entrar el numero de la part actual");
-        int minut = obtenirOpcio(1,10,"Entrar minut de la sancio");
+        int part = partit.getPart();
+        int minut = partit.getMinut();
         
         partit.mostrarArbitres();
         int arbitre = obtenirOpcio(1,2,"Entra l'index de l'arbitre que sancionarà a un jugador");
@@ -132,7 +153,8 @@ public class handbol {
             if(equip != null)
             {
                 equip.mostrarPista();
-                int jugador = obtenirOpcio(1,7,"Entra el dorsal del jugador a sancionar");
+                List<Integer> dorsals = equip.getDorsalsPista();
+                int jugador = obtenirOpcio(dorsals,"Entra el dorsal del jugador a sancionar");
                 
                 try{
                     arbit.AmonestarJugador(jugador, equip.getId(), Utils.TipusSancio.Groga, part, minut);

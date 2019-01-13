@@ -50,6 +50,10 @@ public class Partit {
         _visitant = visitant;
     }
     
+    /**
+     * @pre Cert
+     * @post Ha mostrat per pantalla la informaicio dels equips del partit
+     */
     public void mostrarEquips()
     {
         System.out.println("Equips disputant el partit:");
@@ -58,6 +62,10 @@ public class Partit {
         System.out.println();
     }
     
+    /**
+     * @pre Cert
+     * @post Ha mostrat per pantalla la informacio dels arbitres del partit
+     */
     public void mostrarArbitres()
     {
         System.out.println("Arbitres del partit:");
@@ -66,6 +74,11 @@ public class Partit {
         System.out.println();
     }
     
+    /**
+     * @pre value pertany (1,2)
+     * @param value equip seleccionat
+     * @return equip del partit seleccionat, 1 = local 2 = visitant
+     */
     public Equip obtenirEquip(int value)
     {
         if(value == 1)
@@ -82,6 +95,11 @@ public class Partit {
         }
     }
     
+    /**
+     * @pre value pertany (1,2)
+     * @param value determina quin arbitre es selecciona
+     * @return arbitre del partit segons value
+     */
     public Arbitre obtenirArbitre(int value)
     {
         if(value == 1)
@@ -96,5 +114,21 @@ public class Partit {
         {
             return null;
         }
+    }
+    
+    /**
+     * @pre True
+     * @return la part actual del partit
+     */
+    public int getPart(){
+        return _part;
+    }
+    
+    /**
+     * @pre True
+     * @return el minut actual del partit
+     */
+    public int getMinut(){
+        return _minut;
     }
 }

@@ -29,6 +29,11 @@ public class CarregaDades {
     // Metodes Publics --------------------------------------------------------
     
     
+    /**
+     * @pre True
+     * @post Ha llegit i carregat les dades correspontes a cada classe per crear un partit nou
+     * @throws Exception 
+     */
     public void inicialitzaDades() throws Exception{
                    
         SubjectArbitre subject = ComiteSignleton.getInstance();
@@ -45,12 +50,23 @@ public class CarregaDades {
         _partit = partits.get(0);
     }
     
+    /**
+     * @pre dades inicialitzades
+     * @return la instancia del partit un cop tots els fitxer que el formen s'han carregat
+     */
     public Partit getPartit(){
         return _partit;
     }
     
     // Metodes Privats ---------------------------------------------------------
     
+    /**
+     * @pre parser != null && linies != null
+     * @param parser objecte que sap llegir i crear nous objectes a partir de linies
+     * @param linies llista que conte els registres
+     * @return una llista amb els objectes corresponents al tipus de parser que ha rebut per parametre
+     * @throws Exception llança exepcio si no es poden crear les linies correctament
+     */
     private List fromCSV(CSVEntity parser, List<String> linies) throws Exception{
         
         List result=new ArrayList();
@@ -61,7 +77,11 @@ public class CarregaDades {
     }
     
    
-    
+    /**
+     * @pre fitxer es un nom de fitxer valid
+     * @param fitxer nom de fitxer a llegir
+     * @return retorna una llista amb els diferents registres que ha llegit de fitxer
+     */
     private List<String> llegirFitxer(String fitxer){
         
         List<String> linies=new ArrayList();
