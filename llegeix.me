@@ -1,1 +1,42 @@
-s'ha de llegir
+Manual utilització del software desenvolupat per Francesc Bullich i Adrià Alabau
+per l'assignatura d'Enginyeria del Software II de la Universitat de Girona
+Data: 13 de gener de 2019
+
+Les dades per al correcte funcionament del programa vénen donades en la carpeta Carrega amb els diferents fitxers en format Microsoft Excel.
+
+Arbitres.csv:
+nom;cognom;numLlicencia
+NomArbitre1;CognomArbitre1;numeroLlicencia
+
+Entrenadors.csv:
+nom;cognom;numLlicencia;idEquip
+Mou;Joserinho;E001;EQ002
+
+Equips.csv:
+idEquip;nomEquip;ciutat
+EQ002;Handbol UDG;Girona
+
+Jugadors.csv:
+nom;cognom;numLlicencia;pes;alçada;titular;rol;dorsal;idEquip
+Arpad;Endrapat;J001;70;170;1;Porter;1;EQ002
+
+missatgesEntrenador.csv:
+idEntrenador;idMissage;Text
+E001;M001;Atacar per les bandes
+
+Partit.csv:
+idPartit;dataInici;horaInici;Arbitre1;Arbitre2;EquipLocal;EquipVisitant;TempsActual;PartActual
+PA001;04/01/2019;18:00;A001;A002;EQ003;EQ002;30;2
+
+SancionsJugador.csv:
+idJugador;Tipus;part;minut
+J004;Groga;1;10
+
+Anotacions:
+1- Amb les dades donades si se sanciona al jugador J004 amb una targeta groga, aquest serà expulsat del partit.
+2- No es realitza cap control del pas del temps, per tant, si un jugador és exclòs/expulsat, no es farà entrar a ningú al seu lloc, ja que l'arbitre mai notificarà el pas de 2 minuts reglamentaris.
+
+Per al correcte funcionament del software, avança de demanar a l'usuari quina opció desitja triar es mostrarà per pantalla (amb índex o número de dorsal)
+el llistat d'opcions a realitzar. Si l'usuari entra un valor diferent dels índexs donats o qualsevol altre caràcter o conjunt d'aquests es descartarà i
+es tornarà a demanar quina opció escull. En el cas d'escollir el missatge a enviar als jugadors, es donarà opció a escollir un missatge predefinit o
+entrar-ne un manualment.
