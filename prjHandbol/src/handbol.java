@@ -228,7 +228,7 @@ public class handbol {
         {
             equip.mostrarPista();
             List<Integer> dorsals = equip.getDorsalsPista();
-            int jugador = obtenirOpcio(dorsals,"Entra el dorsal del jugador a sancionar");
+            int jugador = obtenirOpcio(dorsals,"Entra el dorsal del jugador");
 
             fact.mostrarRols();
             int rolnou = obtenirOpcio(1,10,"Entra l'index del rol desitjat");
