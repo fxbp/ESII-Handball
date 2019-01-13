@@ -155,8 +155,6 @@ public class Equip implements Identificable {
         }
     }
     
-<<<<<<< HEAD
-=======
     public List<Integer> getDorsalsPista(){
         List<Integer> result= new ArrayList();
         
@@ -167,7 +165,23 @@ public class Equip implements Identificable {
         return result;
     }
     
->>>>>>> DEV
+    public void canviarRolA(int dorsal, Rol nouRol)
+    {
+        Jugador x = null;
+        
+        for(Jugador j : _pista.values()){
+            if(j.getDorsal() == dorsal)
+            {
+                x=j;
+                break;
+            }
+        }
+        if(x != null){
+            x.canviaRol(nouRol);
+        }
+       
+    }
+    
     // Metodes Interficie identificable
     
     @Override

@@ -14,5 +14,10 @@ public class Porter implements Rol{
         //implementar el metode xutar
         return false;
     }
-       
+    
+    @Override
+    public String toString()
+    {
+        return this.getClass().getName();
+    }
 }

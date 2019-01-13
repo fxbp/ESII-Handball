@@ -11,5 +11,6 @@ public interface Rol {
      * @post S'ha realitzat la accio de xutar
      */
     public boolean xutar();
-           
+    
+
 }

@@ -13,4 +13,9 @@ public class Pivot implements Rol{
         return false;
     }
     
+    @Override
+    public String toString()
+    {
+        return this.getClass().getName();
+    }
 }

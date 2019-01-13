@@ -11,4 +11,10 @@ public abstract class Central implements Rol {
     public boolean xutar(){
         return false;
     }
+    
+    @Override
+    public String toString()
+    {
+        return this.getClass().getName();
+    }
 }

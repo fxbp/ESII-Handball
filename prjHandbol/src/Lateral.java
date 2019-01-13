@@ -39,5 +39,13 @@ public class Lateral implements Rol {
     public boolean xutar(){
        return true;
     }
-        
+    
+    @Override
+    public String toString()
+    {
+        if(_dret){
+            return this.getClass().getName()+"Dret";
+        }
+        return this.getClass().getName() + "Esquerra";
+    }
 }

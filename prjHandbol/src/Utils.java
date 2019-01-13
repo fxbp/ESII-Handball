@@ -21,19 +21,6 @@ public class Utils {
         Porter
     }
     
-    private static final String[] arrayRols = {
-        "CentralAvancat",
-        "CentralCentre",
-        "CentralDret",
-        "CentralEsquerra",
-        "ExtremDret",
-        "ExtremEsquerra",
-        "LateralDret",
-        "LateralEsquerra",
-        "Pivot",
-        "Porter"
-    };
-    
     public enum TipusSancio {
         Groga,
         Vermella,
@@ -59,7 +46,11 @@ public class Utils {
         }
               
         return result;
-    }   
+    }
+    
+     public static Rol obtenirRol(String act){
+         return obtenirRol(Rols.valueOf(act));
+     }
         
     public static Rol obtenirRol(Rols rol){
        

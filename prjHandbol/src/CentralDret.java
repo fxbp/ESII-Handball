@@ -6,5 +6,9 @@
  */
 public class CentralDret extends Central{
     
-  
+  @Override
+    public String toString()
+    {
+        return this.getClass().getName();
+    }
 }

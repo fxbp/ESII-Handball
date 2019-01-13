@@ -13,6 +13,7 @@ public class handbol {
     
     private static Scanner scanner = new Scanner(System.in);
     private static Partit partit;
+    private static RolFactory fact = new RolFactory();
     
     public static void main(String[] args) {
         CarregaDades loader = new CarregaDades();
@@ -185,11 +186,13 @@ public class handbol {
             if(equip != null)
             {
                 equip.mostrarPista();
-                int dorsal = obtenirOpcio(1,7,"Entra el dorsal del jugador");
+                List<Integer> dorsals = equip.getDorsalsPista();
+                int jugador = obtenirOpcio(dorsals,"Entra el dorsal del jugador a sancionar");
                 
+                fact.mostrarRols();
+                int rolnou = obtenirOpcio(1,10,"Entra l'index del rol desitjat");
                 
-                
-                
+                equip.canviarRolA(jugador,fact.getRol(rolnou));
             }
             else
             {

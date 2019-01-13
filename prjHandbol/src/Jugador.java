@@ -209,6 +209,7 @@ public class Jugador extends Personatge
      */
     public void canviaRol(Rol nouRol){
         _rolActual = nouRol;
+        System.out.println("Soc " + super.toString() + ", hi he canviat al rol "+ nouRol.toString());
     }
     
     
@@ -281,6 +282,6 @@ public class Jugador extends Personatge
     @Override
     public String toString()
     {
-        return "Dorsal: "+ _dorsal + " " + super.toString();
+        return "Dorsal: "+ _dorsal + " " + super.toString() + " Rol: " + _rolActual.toString();
     }
  }

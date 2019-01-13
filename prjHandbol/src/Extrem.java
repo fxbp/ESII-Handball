@@ -38,6 +38,15 @@ public class Extrem implements Rol {
     @Override
     public boolean xutar(){
         return false;
-    }       
+    }      
+    
+    @Override
+    public String toString()
+    {
+        if(_dret){
+            return this.getClass().getName()+"Dret";
+        }
+        return this.getClass().getName() + "Esquerra";
+    }
     
 }

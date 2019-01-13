@@ -5,5 +5,9 @@
  */
 public class CentralAvancat extends Central{
     
-   
+   @Override
+    public String toString()
+    {
+        return this.getClass().getName();
+    }
 }

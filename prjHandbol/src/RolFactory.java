@@ -9,7 +9,7 @@
  * @author Adria
  */
 public class RolFactory {
-    
+      
     private final String[] arrayRols = {
         "CentralAvancat",
         "CentralCentre",
@@ -23,11 +23,22 @@ public class RolFactory {
         "Porter"
     };
     
+    public RolFactory()
+    {
+        //
+    }
+    
     public void mostrarRols()
     {
-        for(int i= 0; i<arrayRols.length; i++)
+        System.out.println("Rols a escollir:");
+        for(int i= 1; i<=arrayRols.length; i++)
         {
-            System.out.println(i+ ": "+arrayRols[i]);
+            System.out.println(i+ ": "+arrayRols[i-1]);
         }
+    }
+    
+    public Rol getRol(int rolIndex)
+    {
+        return Utils.obtenirRol(arrayRols[rolIndex-1]);
     }
 }
