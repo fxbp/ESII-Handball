@@ -1,0 +1,481 @@
+---------------------------------------------------------
+Menu:
+1: Notificar un missatge a tots els jugadors de pista d'un equip
+2: Amonestar a un jugador X amb tarja groga
+3: Canviar al rol R a un jugador X
+0: Finalitzar
+---------------------------------------------------------
+
+Introdueix l'index que vols realitzar:
+3
+
+Equips disputant el partit:
+1: Local Id EQ003 Nom HC Sarria de Sarria de Ter
+2: Visitant Id EQ002 Nom Handbol UDG de Girona
+
+Entra l'index de l'equip que vols escollir
+2
+
+Jugadors a pista de l'equip Handbol UDG:
+Dorsal: 1 NOM: Arpad Endrapat Numero Llicencia: J001 Rol: Porter
+Dorsal: 2 NOM: Pedro Gonzalez Numero Llicencia: J002 Rol: ExtremDret
+Dorsal: 3 NOM: Rivero Valera Numero Llicencia: J003 Rol: ExtremEsquerra
+Dorsal: 4 NOM: Ugalian Crigalde Numero Llicencia: J004 Rol: LateralDret
+Dorsal: 5 NOM: Roco Alberta Numero Llicencia: J005 Rol: LateralEsquerra
+Dorsal: 6 NOM: Gonzalo Victores Numero Llicencia: J006 Rol: CentralCentre
+Dorsal: 7 NOM: Aguin Julengalde Numero Llicencia: J007 Rol: Pivot
+
+Entra el dorsal del jugador a sancionar
+7
+
+Rols a escollir:
+1: CentralAvancat
+2: CentralCentre
+3: CentralDret
+4: CentralEsquerra
+5: ExtremDret
+6: ExtremEsquerra
+7: LateralDret
+8: LateralEsquerra
+9: Pivot
+10: Porter
+
+Entra l'index del rol desitjat
+1
+
+Soc NOM: Aguin Julengalde Numero Llicencia: J007, hi he canviat al rol CentralAvancat
+
+---------------------------------------------------------
+Menu:
+1: Notificar un missatge a tots els jugadors de pista d'un equip
+2: Amonestar a un jugador X amb tarja groga
+3: Canviar al rol R a un jugador X
+0: Finalitzar
+---------------------------------------------------------
+
+Introdueix l'index que vols realitzar:
+1
+
+Equips disputant el partit:
+1: Local Id EQ003 Nom HC Sarria de Sarria de Ter
+2: Visitant Id EQ002 Nom Handbol UDG de Girona
+
+Entra l'index de l'equip que vols escollir
+2
+
+1: Atacar per les bandes
+2: Presionar pel centre
+3: Atacar per la dreta
+
+Introdueix el missatge que vols enviar
+Presionem en defensa, hem de robar pilota
+
+Dorsal 8 NOM: Karba Nikolatic Numero Llicencia: J008: L'entrenador m'ha enviat: 
+Presionem en defensa, hem de robar pilota
+
+Dorsal 9 NOM: Hans Mikkelsen Numero Llicencia: J009: L'entrenador m'ha enviat: 
+Presionem en defensa, hem de robar pilota
+
+Dorsal 10 NOM: Duvan Domanjak Numero Llicencia: J010: L'entrenador m'ha enviat: 
+Presionem en defensa, hem de robar pilota
+
+Dorsal 11 NOM: Valur Gujosson Numero Llicencia: J011: L'entrenador m'ha enviat: 
+Presionem en defensa, hem de robar pilota
+
+Dorsal 12 NOM: Omery Thierreyer Numero Llicencia: J012: L'entrenador m'ha enviat: 
+Presionem en defensa, hem de robar pilota
+
+---------------------------------------------------------
+Menu:
+1: Notificar un missatge a tots els jugadors de pista d'un equip
+2: Amonestar a un jugador X amb tarja groga
+3: Canviar al rol R a un jugador X
+0: Finalitzar
+---------------------------------------------------------
+
+Introdueix l'index que vols realitzar:
+2
+
+Arbitres del partit:
+1: NOM: Manuel Callat Numero Llicencia: A001
+2: NOM: Xano Descosit Numero Llicencia: A002
+
+Entra l'index de l'arbitre que sancionarà a un jugador
+2
+
+Equips disputant el partit:
+1: Local Id EQ003 Nom HC Sarria de Sarria de Ter
+2: Visitant Id EQ002 Nom Handbol UDG de Girona
+
+Entra l'index de l'equip que vols escollir
+2
+
+Jugadors a pista de l'equip Handbol UDG:
+Dorsal: 1 NOM: Arpad Endrapat Numero Llicencia: J001 Rol: Porter
+Dorsal: 2 NOM: Pedro Gonzalez Numero Llicencia: J002 Rol: ExtremDret
+Dorsal: 3 NOM: Rivero Valera Numero Llicencia: J003 Rol: ExtremEsquerra
+Dorsal: 4 NOM: Ugalian Crigalde Numero Llicencia: J004 Rol: LateralDret
+Dorsal: 5 NOM: Roco Alberta Numero Llicencia: J005 Rol: LateralEsquerra
+Dorsal: 6 NOM: Gonzalo Victores Numero Llicencia: J006 Rol: CentralCentre
+Dorsal: 7 NOM: Aguin Julengalde Numero Llicencia: J007 Rol: CentralAvancat
+
+Entra el dorsal del jugador a sancionar
+7
+
+Dorsal: 7 NOM: Aguin Julengalde Numero Llicencia: J007 Rol: CentralAvancat: He rebut una targeta groga!!
+
+---------------------------------------------------------
+Menu:
+1: Notificar un missatge a tots els jugadors de pista d'un equip
+2: Amonestar a un jugador X amb tarja groga
+3: Canviar al rol R a un jugador X
+0: Finalitzar
+---------------------------------------------------------
+
+Introdueix l'index que vols realitzar:
+2
+
+Arbitres del partit:
+1: NOM: Manuel Callat Numero Llicencia: A001
+2: NOM: Xano Descosit Numero Llicencia: A002
+
+Entra l'index de l'arbitre que sancionarà a un jugador
+2
+
+Equips disputant el partit:
+1: Local Id EQ003 Nom HC Sarria de Sarria de Ter
+2: Visitant Id EQ002 Nom Handbol UDG de Girona
+
+Entra l'index de l'equip que vols escollir
+2
+
+Jugadors a pista de l'equip Handbol UDG:
+Dorsal: 1 NOM: Arpad Endrapat Numero Llicencia: J001 Rol: Porter
+Dorsal: 2 NOM: Pedro Gonzalez Numero Llicencia: J002 Rol: ExtremDret
+Dorsal: 3 NOM: Rivero Valera Numero Llicencia: J003 Rol: ExtremEsquerra
+Dorsal: 4 NOM: Ugalian Crigalde Numero Llicencia: J004 Rol: LateralDret
+Dorsal: 5 NOM: Roco Alberta Numero Llicencia: J005 Rol: LateralEsquerra
+Dorsal: 6 NOM: Gonzalo Victores Numero Llicencia: J006 Rol: CentralCentre
+Dorsal: 7 NOM: Aguin Julengalde Numero Llicencia: J007 Rol: CentralAvancat
+
+Entra el dorsal del jugador a sancionar
+4
+
+Dorsal: 4 NOM: Ugalian Crigalde Numero Llicencia: J004 Rol: LateralDret: He rebut una targeta groga!!
+
+Dorsal: 4 NOM: Ugalian Crigalde Numero Llicencia: J004 Rol: LateralDret: He estat expulsat!!
+
+---------------------------------------------------------
+Menu:
+1: Notificar un missatge a tots els jugadors de pista d'un equip
+2: Amonestar a un jugador X amb tarja groga
+3: Canviar al rol R a un jugador X
+0: Finalitzar
+---------------------------------------------------------
+
+Introdueix l'index que vols realitzar:
+1
+
+Equips disputant el partit:
+1: Local Id EQ003 Nom HC Sarria de Sarria de Ter
+2: Visitant Id EQ002 Nom Handbol UDG de Girona
+
+Entra l'index de l'equip que vols escollir
+2
+
+1: Atacar per les bandes
+2: Presionar pel centre
+3: Atacar per la dreta
+
+Introdueix el missatge que vols enviar
+Posem l'autobus, som un menys
+
+Dorsal 8 NOM: Karba Nikolatic Numero Llicencia: J008: L'entrenador m'ha enviat: 
+Posem l'autobus, som un menys
+
+Dorsal 9 NOM: Hans Mikkelsen Numero Llicencia: J009: L'entrenador m'ha enviat: 
+Posem l'autobus, som un menys
+
+Dorsal 10 NOM: Duvan Domanjak Numero Llicencia: J010: L'entrenador m'ha enviat: 
+Posem l'autobus, som un menys
+
+Dorsal 11 NOM: Valur Gujosson Numero Llicencia: J011: L'entrenador m'ha enviat: 
+Posem l'autobus, som un menys
+
+Dorsal 12 NOM: Omery Thierreyer Numero Llicencia: J012: L'entrenador m'ha enviat: 
+Posem l'autobus, som un menys
+
+---------------------------------------------------------
+Menu:
+1: Notificar un missatge a tots els jugadors de pista d'un equip
+2: Amonestar a un jugador X amb tarja groga
+3: Canviar al rol R a un jugador X
+0: Finalitzar
+---------------------------------------------------------
+
+Introdueix l'index que vols realitzar:
+3
+
+Equips disputant el partit:
+1: Local Id EQ003 Nom HC Sarria de Sarria de Ter
+2: Visitant Id EQ002 Nom Handbol UDG de Girona
+
+Entra l'index de l'equip que vols escollir
+2
+
+Jugadors a pista de l'equip Handbol UDG:
+Dorsal: 1 NOM: Arpad Endrapat Numero Llicencia: J001 Rol: Porter
+Dorsal: 2 NOM: Pedro Gonzalez Numero Llicencia: J002 Rol: ExtremDret
+Dorsal: 3 NOM: Rivero Valera Numero Llicencia: J003 Rol: ExtremEsquerra
+Dorsal: 5 NOM: Roco Alberta Numero Llicencia: J005 Rol: LateralEsquerra
+Dorsal: 6 NOM: Gonzalo Victores Numero Llicencia: J006 Rol: CentralCentre
+Dorsal: 7 NOM: Aguin Julengalde Numero Llicencia: J007 Rol: CentralAvancat
+
+Entra el dorsal del jugador a sancionar
+2
+
+Rols a escollir:
+1: CentralAvancat
+2: CentralCentre
+3: CentralDret
+4: CentralEsquerra
+5: ExtremDret
+6: ExtremEsquerra
+7: LateralDret
+8: LateralEsquerra
+9: Pivot
+10: Porter
+
+Entra l'index del rol desitjat
+8
+
+Soc NOM: Pedro Gonzalez Numero Llicencia: J002, hi he canviat al rol LateralEsquerra
+
+---------------------------------------------------------
+Menu:
+1: Notificar un missatge a tots els jugadors de pista d'un equip
+2: Amonestar a un jugador X amb tarja groga
+3: Canviar al rol R a un jugador X
+0: Finalitzar
+---------------------------------------------------------
+
+Introdueix l'index que vols realitzar:
+3
+
+Equips disputant el partit:
+1: Local Id EQ003 Nom HC Sarria de Sarria de Ter
+2: Visitant Id EQ002 Nom Handbol UDG de Girona
+
+Entra l'index de l'equip que vols escollir
+2
+
+Jugadors a pista de l'equip Handbol UDG:
+Dorsal: 1 NOM: Arpad Endrapat Numero Llicencia: J001 Rol: Porter
+Dorsal: 2 NOM: Pedro Gonzalez Numero Llicencia: J002 Rol: LateralEsquerra
+Dorsal: 3 NOM: Rivero Valera Numero Llicencia: J003 Rol: ExtremEsquerra
+Dorsal: 5 NOM: Roco Alberta Numero Llicencia: J005 Rol: LateralEsquerra
+Dorsal: 6 NOM: Gonzalo Victores Numero Llicencia: J006 Rol: CentralCentre
+Dorsal: 7 NOM: Aguin Julengalde Numero Llicencia: J007 Rol: CentralAvancat
+
+Entra el dorsal del jugador a sancionar
+3
+
+Rols a escollir:
+1: CentralAvancat
+2: CentralCentre
+3: CentralDret
+4: CentralEsquerra
+5: ExtremDret
+6: ExtremEsquerra
+7: LateralDret
+8: LateralEsquerra
+9: Pivot
+10: Porter
+
+Entra l'index del rol desitjat
+7
+
+Soc NOM: Rivero Valera Numero Llicencia: J003, hi he canviat al rol LateralDret
+
+---------------------------------------------------------
+Menu:
+1: Notificar un missatge a tots els jugadors de pista d'un equip
+2: Amonestar a un jugador X amb tarja groga
+3: Canviar al rol R a un jugador X
+0: Finalitzar
+---------------------------------------------------------
+
+Introdueix l'index que vols realitzar:
+1
+
+Equips disputant el partit:
+1: Local Id EQ003 Nom HC Sarria de Sarria de Ter
+2: Visitant Id EQ002 Nom Handbol UDG de Girona
+
+Entra l'index de l'equip que vols escollir
+1
+
+1: Defensar junts
+2: Cobrir les bandes
+
+Introdueix el missatge que vols enviar
+Presionem a guanyar
+
+Dorsal 2 NOM: Nalo Lazsly Numero Llicencia: J102: L'entrenador m'ha enviat: 
+Presionem a guanyar
+
+Dorsal 3 NOM: Vuselin Vejovic Numero Llicencia: J103: L'entrenador m'ha enviat: 
+Presionem a guanyar
+
+Dorsal 4 NOM: Stenel Jacson Numero Llicencia: J104: L'entrenador m'ha enviat: 
+Presionem a guanyar
+
+Dorsal 5 NOM: Balano Ivanic Numero Llicencia: J105: L'entrenador m'ha enviat: 
+Presionem a guanyar
+
+Dorsal 12 NOM: Szmomir Slawmal Numero Llicencia: J112: L'entrenador m'ha enviat: 
+Presionem a guanyar
+
+---------------------------------------------------------
+Menu:
+1: Notificar un missatge a tots els jugadors de pista d'un equip
+2: Amonestar a un jugador X amb tarja groga
+3: Canviar al rol R a un jugador X
+0: Finalitzar
+---------------------------------------------------------
+
+Introdueix l'index que vols realitzar:
+3
+
+Equips disputant el partit:
+1: Local Id EQ003 Nom HC Sarria de Sarria de Ter
+2: Visitant Id EQ002 Nom Handbol UDG de Girona
+
+Entra l'index de l'equip que vols escollir
+1
+
+Jugadors a pista de l'equip HC Sarria:
+Dorsal: 1 NOM: Boen Deanbac Numero Llicencia: J101 Rol: Porter
+Dorsal: 6 NOM: Skragan Drabic Numero Llicencia: J106 Rol: LateralDret
+Dorsal: 7 NOM: Genter Peterzel Numero Llicencia: J107 Rol: LateralEsquerra
+Dorsal: 8 NOM: Mirmba Dzonza Numero Llicencia: J108 Rol: ExtremDret
+Dorsal: 9 NOM: Lofan Stegren Numero Llicencia: J109 Rol: ExtremEsquerra
+Dorsal: 10 NOM: Wislnus Magnunder Numero Llicencia: J110 Rol: CentralCentre
+Dorsal: 11 NOM: Jilip Ficha Numero Llicencia: J111 Rol: Pivot
+
+Entra el dorsal del jugador a sancionar
+6
+
+Rols a escollir:
+1: CentralAvancat
+2: CentralCentre
+3: CentralDret
+4: CentralEsquerra
+5: ExtremDret
+6: ExtremEsquerra
+7: LateralDret
+8: LateralEsquerra
+9: Pivot
+10: Porter
+
+Entra l'index del rol desitjat
+2
+
+Soc NOM: Skragan Drabic Numero Llicencia: J106, hi he canviat al rol CentralCentre
+
+---------------------------------------------------------
+Menu:
+1: Notificar un missatge a tots els jugadors de pista d'un equip
+2: Amonestar a un jugador X amb tarja groga
+3: Canviar al rol R a un jugador X
+0: Finalitzar
+---------------------------------------------------------
+
+Introdueix l'index que vols realitzar:
+3
+
+Equips disputant el partit:
+1: Local Id EQ003 Nom HC Sarria de Sarria de Ter
+2: Visitant Id EQ002 Nom Handbol UDG de Girona
+
+Entra l'index de l'equip que vols escollir
+1
+
+Jugadors a pista de l'equip HC Sarria:
+Dorsal: 1 NOM: Boen Deanbac Numero Llicencia: J101 Rol: Porter
+Dorsal: 6 NOM: Skragan Drabic Numero Llicencia: J106 Rol: CentralCentre
+Dorsal: 7 NOM: Genter Peterzel Numero Llicencia: J107 Rol: LateralEsquerra
+Dorsal: 8 NOM: Mirmba Dzonza Numero Llicencia: J108 Rol: ExtremDret
+Dorsal: 9 NOM: Lofan Stegren Numero Llicencia: J109 Rol: ExtremEsquerra
+Dorsal: 10 NOM: Wislnus Magnunder Numero Llicencia: J110 Rol: CentralCentre
+Dorsal: 11 NOM: Jilip Ficha Numero Llicencia: J111 Rol: Pivot
+
+Entra el dorsal del jugador a sancionar
+7
+
+Rols a escollir:
+1: CentralAvancat
+2: CentralCentre
+3: CentralDret
+4: CentralEsquerra
+5: ExtremDret
+6: ExtremEsquerra
+7: LateralDret
+8: LateralEsquerra
+9: Pivot
+10: Porter
+
+Entra l'index del rol desitjat
+1
+
+Soc NOM: Genter Peterzel Numero Llicencia: J107, hi he canviat al rol CentralAvancat
+
+---------------------------------------------------------
+Menu:
+1: Notificar un missatge a tots els jugadors de pista d'un equip
+2: Amonestar a un jugador X amb tarja groga
+3: Canviar al rol R a un jugador X
+0: Finalitzar
+---------------------------------------------------------
+
+Introdueix l'index que vols realitzar:
+1
+
+Equips disputant el partit:
+1: Local Id EQ003 Nom HC Sarria de Sarria de Ter
+2: Visitant Id EQ002 Nom Handbol UDG de Girona
+
+Entra l'index de l'equip que vols escollir
+1
+
+1: Defensar junts
+2: Cobrir les bandes
+
+Introdueix el missatge que vols enviar
+1
+
+Dorsal 2 NOM: Nalo Lazsly Numero Llicencia: J102: L'entrenador m'ha enviat: 
+Defensar junts
+
+Dorsal 3 NOM: Vuselin Vejovic Numero Llicencia: J103: L'entrenador m'ha enviat: 
+Defensar junts
+
+Dorsal 4 NOM: Stenel Jacson Numero Llicencia: J104: L'entrenador m'ha enviat: 
+Defensar junts
+
+Dorsal 5 NOM: Balano Ivanic Numero Llicencia: J105: L'entrenador m'ha enviat: 
+Defensar junts
+
+Dorsal 12 NOM: Szmomir Slawmal Numero Llicencia: J112: L'entrenador m'ha enviat: 
+Defensar junts
+
+---------------------------------------------------------
+Menu:
+1: Notificar un missatge a tots els jugadors de pista d'un equip
+2: Amonestar a un jugador X amb tarja groga
+3: Canviar al rol R a un jugador X
+0: Finalitzar
+---------------------------------------------------------
+
+Introdueix l'index que vols realitzar:
+0

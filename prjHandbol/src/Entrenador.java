@@ -108,12 +108,19 @@ public class Entrenador extends Personatge
     
     public String translate(String missatge)
     {
-        int auxiliar = Integer.parseInt(missatge);
-        if(auxiliar>0 && auxiliar <= _missatges.size())
+        try
         {
-            return _missatges.get(auxiliar-1).toString();
+            int auxiliar = Integer.parseInt(missatge);
+            if(auxiliar>0 && auxiliar <= _missatges.size())
+            {
+                return _missatges.get(auxiliar-1).toString();
+            }
+            else
+            {
+                return missatge;
+            }
         }
-        else
+        catch (Exception e)
         {
             return missatge;
         }
